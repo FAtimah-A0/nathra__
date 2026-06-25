@@ -72,3 +72,14 @@ export function getRingColor(pct) {
   if (pct >= 0.4) return '#2F37D8';
   return '#ef4444';
 }
+
+export function shouldShowLeadBox() {
+  return true;
+}
+
+export function getLeadMessage(score) {
+  if (score <= 2) {
+    return 'يبدو أن هناك مجالاً للتحسين — دوراتنا التدريبية ستنقلك لمستوى أعلى. أدخل بياناتك وسيتواصل معك فريق نثرة.';
+  }
+  return 'رائع جداً! هناك مجالاً للتحسين عملي — دوراتنا التدريبية ستنقلك لمستوى أعلى. أدخل بياناتك وسيتواصل معك فريق نثرة.';
+}

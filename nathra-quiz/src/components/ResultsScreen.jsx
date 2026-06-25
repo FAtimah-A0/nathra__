@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { getResultKey, getRingColor, RESULTS } from '../data/quizData';
+import { getResultKey, getRingColor, getLeadMessage, shouldShowLeadBox, RESULTS } from '../data/quizData';
 import { submitLead } from '../services/submitLead';
 
 const RING_CIRCUMFERENCE = 376.99;
@@ -10,11 +10,13 @@ export default function ResultsScreen({ score, total, level, topic, onGoHome, on
   const [phone, setPhone] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [leadSubmitted, setLeadSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const pct = score / total;
   const resultKey = getResultKey(pct);
   const result = RESULTS[resultKey];
-  const showLeadBox = resultKey === 'low';
+  const showLeadBox = shouldShowLeadBox();
+  const leadMessage = getLeadMessage(score);
 
   const badges = [
     { label: '⚡ سرعة التفكير', earned: true },
@@ -47,6 +49,7 @@ export default function ResultsScreen({ score, total, level, topic, onGoHome, on
     }
 
     setSubmitting(true);
+    setSubmitError('');
     try {
       await submitLead({
         name: trimmedName,
@@ -57,6 +60,8 @@ export default function ResultsScreen({ score, total, level, topic, onGoHome, on
         total,
       });
       setLeadSubmitted(true);
+    } catch (err) {
+      setSubmitError(err.message || 'تعذّر إرسال البيانات. حاول مرة أخرى.');
     } finally {
       setSubmitting(false);
     }
@@ -101,10 +106,7 @@ export default function ResultsScreen({ score, total, level, topic, onGoHome, on
       {showLeadBox && (
         <div className="lead-box">
           <h3>🎯 نريد مساعدتك في التطور!</h3>
-          <p>
-            يبدو أن هناك مجالاً للتحسين — دوراتنا التدريبية ستنقلك لمستوى أعلى. أدخل بياناتك وسيتواصل معك
-            فريق نثرة.
-          </p>
+          <p>{leadMessage}</p>
           {leadSubmitted ? (
             <div className="success-msg">
               ✅ تم إرسال بياناتك بنجاح! سيتواصل معك فريق نثرة قريباً.
@@ -123,6 +125,7 @@ export default function ResultsScreen({ score, total, level, topic, onGoHome, on
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="رقم الجوال"
               />
+              {submitError && <div className="submit-error">{submitError}</div>}
               <button type="submit" className="submit-btn" disabled={submitting}>
                 {submitting ? 'جارٍ الإرسال...' : 'أرسل بياناتي 🚀'}
               </button>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1080" />
+  <title>{{PAGE_TITLE}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #061228;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .poster {
+      width: 1080px;
+      height: 1350px;
+      position: relative;
+      overflow: hidden;
+      background: #061535;
+    }
+    .bg-image {
+      position: absolute;
+      inset: 0;
+      background-image: url('{{HERO_IMAGE}}');
+      background-size: cover;
+      background-position: center 30%;
+      transform: scale(1.05);
+      z-index: 0;
+    }
+    .bg-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(115deg, rgba(6, 18, 40, 0.94) 0%, rgba(10, 30, 74, 0.9) 42%, rgba(6, 21, 53, 0.88) 100%),
+        linear-gradient(180deg, transparent 55%, rgba(6, 21, 53, 0.95) 100%);
+      z-index: 0;
+    }
+    .accent-bar {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(180deg, #ffb347, #ff8c2a, #ff5500);
+      z-index: 2;
+      box-shadow: -4px 0 24px rgba(255, 120, 0, 0.35);
+    }
+    .inner {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      padding: 30px 40px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      direction: ltr;
+    }
+    .brand-logos { display: flex; align-items: flex-start; gap: 14px; }
+    .logo-scale {
+      position: relative;
+      transform: scale(1.05) translateY(8px);
+      transform-origin: left top;
+    }
+    .logo-glow {
+      position: absolute;
+      width: 130px; height: 130px;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(255, 140, 40, 0.65) 0%, transparent 70%);
+      filter: blur(24px);
+    }
+    .logo-wrap img {
+      height: 78px; width: auto;
+      position: relative; z-index: 1;
+      filter: drop-shadow(0 0 16px rgba(255, 120, 0, 0.35));
+    }
+    .partner-logo-wrap {
+      width: 108px; height: 68px; margin-top: 8px;
+      border: 1px dashed rgba(255, 140, 40, 0.35);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .partner-logo-wrap img { max-width: 88px; max-height: 56px; object-fit: contain; }
+    .partner-logo-placeholder span { color: rgba(255,255,255,0.38); font-size: 10px; font-weight: 700; }
+    .brand-tag { color: rgba(255,255,255,0.42); font-size: 11px; font-weight: 600; padding-top: 6px; }
+    .top-badge {
+      align-self: flex-start;
+      background: rgba(255, 120, 0, 0.14);
+      border: 1px solid rgba(255, 140, 40, 0.5);
+      color: #ffb347;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 6px 16px;
+      border-radius: 999px;
+    }
+    .hero-block { padding-top: 4px; }
+    .title {
+      color: #fff;
+      font-size: 44px;
+      font-weight: 900;
+      line-height: 1.22;
+      max-width: 88%;
+      text-shadow: 0 4px 24px rgba(0,0,0,0.35);
+    }
+    .subtitle {
+      color: #ff8c2a;
+      font-size: 17px;
+      font-weight: 700;
+      margin-top: 10px;
+      max-width: 85%;
+      line-height: 1.55;
+    }
+    .tools-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .tool-pill {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(6, 21, 53, 0.7);
+      border: 1px solid rgba(255, 140, 40, 0.28);
+      border-radius: 999px;
+      padding: 5px 12px 5px 10px;
+    }
+    .tool-icon img { width: 20px; height: 20px; display: block; }
+    .tool-name { color: rgba(255,255,255,0.92); font-size: 11px; font-weight: 700; }
+    .metric-ribbon {
+      display: flex;
+      align-items: stretch;
+      background: rgba(6, 21, 53, 0.78);
+      border: 1px solid rgba(255, 140, 40, 0.25);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .metric {
+      flex: 1;
+      padding: 14px 10px;
+      text-align: center;
+    }
+    .metric-value {
+      color: #ff8c2a;
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1;
+      text-shadow: 0 0 16px rgba(255, 120, 0, 0.25);
+    }
+    .metric-label {
+      color: rgba(255,255,255,0.5);
+      font-size: 11px;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+    .metric-divider {
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(255, 140, 40, 0.35), transparent);
+    }
+    .start-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 22px;
+      border-radius: 18px;
+      background: linear-gradient(90deg, rgba(255, 140, 40, 0.22), rgba(255, 100, 0, 0.08));
+      border: 1px solid rgba(255, 140, 40, 0.45);
+      box-shadow: 0 0 32px rgba(255, 100, 0, 0.12);
+    }
+    .start-label {
+      color: rgba(255,255,255,0.55);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .start-date {
+      color: #fff;
+      font-size: 34px;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .start-date span { color: #ff8c2a; }
+    .start-meta {
+      text-align: left;
+      direction: rtl;
+    }
+    .start-weekday {
+      color: #ffb347;
+      font-size: 15px;
+      font-weight: 800;
+    }
+    .start-month-tag {
+      display: inline-block;
+      margin-top: 6px;
+      background: rgba(6, 21, 53, 0.65);
+      border: 1px solid rgba(255, 140, 40, 0.35);
+      color: #ffb347;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+    .section-label {
+      color: rgba(255,255,255,0.45);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      margin-bottom: 8px;
+    }
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .module-card {
+      background: rgba(6, 21, 53, 0.78);
+      border: 1px solid rgba(255, 140, 40, 0.2);
+      border-radius: 14px;
+      padding: 14px 14px 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .module-card::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #ff8c2a, transparent);
+      opacity: 0.7;
+    }
+    .module-num {
+      color: rgba(255, 140, 40, 0.35);
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .module-name {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .module-detail {
+      color: rgba(255,255,255,0.55);
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    .feature-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .feature-tag {
+      background: rgba(255, 140, 40, 0.1);
+      border: 1px solid rgba(255, 140, 40, 0.28);
+      color: rgba(255,255,255,0.88);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 7px 12px;
+      border-radius: 999px;
+    }
+    .feature-tag::before {
+      content: '✓ ';
+      color: #ff8c2a;
+    }
+    .summary-line {
+      text-align: center;
+      color: rgba(255,255,255,0.48);
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+    .summary-line strong { color: #ff8c2a; }
+    .cta-band {
+      margin-top: auto;
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 12px;
+      align-items: stretch;
+    }
+    .price-anchor {
+      background: rgba(0,0,0,0.55);
+      border: 2px solid rgba(255, 140, 40, 0.62);
+      border-radius: 18px;
+      padding: 14px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      text-align: center;
+    }
+    .limited-tag {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: #e53935;
+      color: #fff;
+      font-size: 9px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 5px;
+    }
+    .price-label {
+      color: rgba(255,255,255,0.65);
+      font-size: 10px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .old-price {
+      color: rgba(255,255,255,0.32);
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: line-through;
+    }
+    .new-price {
+      color: #ff8c2a;
+      font-size: 46px;
+      font-weight: 900;
+      line-height: 1;
+      text-shadow: 0 0 24px rgba(255, 120, 0, 0.4);
+    }
+    .new-price span { font-size: 16px; font-weight: 700; }
+    .register-link { text-decoration: none; color: inherit; display: block; height: 100%; }
+    .register-box {
+      height: 100%;
+      background: linear-gradient(135deg, #ff8c2a 0%, #ff5500 100%);
+      border-radius: 18px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 10px 40px rgba(255, 100, 0, 0.35);
+    }
+    .qr-wrap {
+      background: #fff;
+      border-radius: 10px;
+      padding: 6px;
+      flex-shrink: 0;
+    }
+    .qr-wrap img { width: 92px; height: 92px; display: block; }
+    .register-content { flex: 1; text-align: center; }
+    .register-label { color: rgba(255,255,255,0.85); font-size: 11px; font-weight: 700; }
+    .register-btn { color: #fff; font-size: 30px; font-weight: 900; margin: 4px 0; }
+    .form-link { color: rgba(255,255,255,0.9); font-size: 10px; font-weight: 600; direction: ltr; }
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2px;
+    }
+    .tagline { color: rgba(255,255,255,0.34); font-size: 12px; font-weight: 600; }
+    .whatsapp { color: #ff8c2a; font-size: 14px; font-weight: 800; direction: ltr; }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <div class="bg-image"></div>
+    <div class="bg-overlay"></div>
+    <div class="accent-bar"></div>
+    <div class="inner">
+      <header class="header">
+        <div class="brand-logos">
+          <div class="logo-wrap">
+            <div class="logo-scale">
+              <div class="logo-glow"></div>
+              <img src="{{LOGO_SRC}}" alt="Nathra" />
+            </div>
+          </div>
+          <div class="partner-logo-wrap">{{PARTNER_LOGO_BLOCK}}</div>
+        </div>
+        <div class="brand-tag">{{BRAND_TAG}}</div>
+      </header>
+
+      <div class="top-badge">{{TOP_BADGE}}</div>
+
+      <section class="hero-block">
+        <h1 class="title">{{TITLE_HTML}}</h1>
+        <p class="subtitle">{{SUBTITLE}}</p>
+        <div class="tools-row">{{TOOLS_ROW}}</div>
+      </section>
+
+      <div class="metric-ribbon">{{METRIC_RIBBON}}</div>
+
+      <div class="start-banner">
+        <div>
+          <div class="start-label">موعد البداية</div>
+          <div class="start-date">{{START_DAY}} <span>{{START_MONTH}}</span></div>
+        </div>
+        <div class="start-meta">
+          <div class="start-weekday">{{START_WEEKDAY}}</div>
+          <div class="start-month-tag">{{SCHEDULE_MONTH}}</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-label">مسار التعلم</div>
+        <div class="module-grid">{{MODULE_GRID}}</div>
+      </div>
+
+      <div>
+        <div class="section-label">مميزات المعسكر</div>
+        <div class="feature-tags">{{FEATURE_TAGS}}</div>
+      </div>
+
+      <div class="summary-line">{{DATES_SUMMARY}}</div>
+
+      <div class="cta-band">
+        <div class="price-anchor">
+          <div class="limited-tag">{{LIMITED_TAG}}</div>
+          <div class="price-label">{{PRICE_LABEL}}</div>
+          <div class="old-price">{{OLD_PRICE}}</div>
+          <div class="new-price">{{NEW_PRICE}} <span>{{CURRENCY}}</span></div>
+        </div>
+        <a class="register-link" href="{{REGISTER_URL}}" target="_blank" rel="noopener noreferrer">
+          <div class="register-box">
+            <div class="qr-wrap"><img src="{{QR_IMAGE_URL}}" alt="QR" /></div>
+            <div class="register-content">
+              <div class="register-label">{{REGISTER_LABEL}}</div>
+              <div class="register-btn">{{REGISTER_BUTTON}}</div>
+              <div class="form-link">{{FORM_LINK}}</div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <footer class="footer">
+        <div class="tagline">{{FOOTER_TAGLINE}}</div>
+        <div class="whatsapp">{{FOOTER_WHATSAPP}}</div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+{
+  "outputName": "course-ad-poster",
+  "pageTitle": "دورة تنظيم البيانات — Nathra",
+  "brand": {
+    "logo": "logo-transparent.png",
+    "tag": "© 2026 Nathra | نثرة للبيانات"
+  },
+  "topBadge": "عرض لفترة محدودة — مقاعد محدودة",
+  "titleLines": [
+    "دورة تنظيم البيانات",
+    "وإدارة الملفات الرقمية"
+  ],
+  "subtitle": "بشكل عملي بحت — Google Sheets & Google Drive",
+  "tools": [
+    {
+      "name": "Google Drive",
+      "icon": "https://www.gstatic.com/images/branding/product/2x/drive_2020q4_48dp.png"
+    },
+    {
+      "name": "Google Sheets",
+      "icon": "https://www.gstatic.com/images/branding/product/2x/sheets_2020q4_48dp.png"
+    }
+  ],
+  "stats": [
+    { "icon": "⏱", "label": "المدة", "value": "3 أيام" },
+    { "icon": "💻", "label": "الأسلوب", "value": "أونلاين مباشر" },
+    { "icon": "🎯", "label": "المشاريع", "value": "عملي 100%" }
+  ],
+  "schedule": {
+    "title": "🗓️ مواعيد الدورة",
+    "monthTag": "يونيو 2026",
+    "summary": "3 أيام متتالية — <strong>27 / 28 / 29 يونيو</strong>",
+    "days": [
+      { "session": "اليوم 1", "weekday": "الجمعة", "day": "27", "month": "يونيو" },
+      { "session": "اليوم 2", "weekday": "السبت", "day": "28", "month": "يونيو" },
+      { "session": "اليوم 3", "weekday": "الأحد", "day": "29", "month": "يونيو" }
+    ]
+  },
+  "learn": {
+    "title": "ماذا ستتعلم؟",
+    "subtitle": "بناءً على استبيان المتدربين",
+    "columns": [
+      [
+        "إنشاء جداول احترافية",
+        "مشاركة الملفات والصلاحيات",
+        "إنشاء تقارير جاهزة",
+        "استخدام Google Forms"
+      ],
+      [
+        "تنظيم الملفات في Drive",
+        "إدخال البيانات بشكل منظم",
+        "حسابات تلقائية (مثل الدرجات)",
+        "مشروع عملي داخل الدورة"
+      ]
+    ]
+  },
+  "cta": {
+    "registerUrl": "https://forms.gle/R8v7CKPvT7RX9rKH9",
+    "registerLabel": "تسجيل",
+    "registerButton": "سجل الآن",
+    "priceLabel": "عرض خاص لفترة محدودة",
+    "limitedTag": "عرض",
+    "oldPrice": "115 ر.س",
+    "newPrice": "75",
+    "currency": "ر.س"
+  },
+  "footer": {
+    "tagline": "من نثر البيانات، نصنع المعنى.",
+    "whatsapp": "للاستفسارات: 0504581123"
+  }
+}

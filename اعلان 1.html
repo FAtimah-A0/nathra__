@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1080" />
+  <title>دورة تنظيم البيانات — Nathra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #061533;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .poster {
+      width: 1080px;
+      height: 1350px;
+      padding: 40px 48px 32px;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(180deg, #0b2a5e 0%, #081e45 55%, #061533 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .poster::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(255, 122, 0, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 10% 90%, rgba(66, 133, 244, 0.08) 0%, transparent 35%);
+      pointer-events: none;
+    }
+
+    .inner { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+
+    .logo img { height: 68px; width: auto; }
+
+    .brand-tag {
+      color: rgba(255,255,255,0.5);
+      font-size: 13px;
+      font-weight: 600;
+      direction: ltr;
+    }
+
+    .hero { text-align: center; margin-bottom: 24px; }
+
+    .title {
+      color: #fff;
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1.35;
+      margin-bottom: 14px;
+    }
+
+    .subtitle {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .subtitle .tools-text { color: #ff7a00; }
+    .subtitle .dash { color: rgba(255,255,255,0.5); margin: 0 8px; }
+    .subtitle .practical { color: #fff; }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .stat-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+
+    .stat-label {
+      color: rgba(255,255,255,0.55);
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .stat-value {
+      color: #ff7a00;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .schedule-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-bottom: 16px;
+    }
+
+    .schedule-title {
+      color: #fff;
+      font-size: 17px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .dates-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .date-card {
+      background: rgba(0,0,0,0.25);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 14px 10px;
+      text-align: center;
+    }
+
+    .date-card .day-tag {
+      color: rgba(255,255,255,0.55);
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .date-card .day-num {
+      color: #ff7a00;
+      font-size: 34px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .date-card .day-month {
+      color: rgba(255,255,255,0.75);
+      font-size: 14px;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    .tools-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .tool-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 40px;
+      padding: 10px 22px;
+    }
+
+    .tool-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .tool-icon.sheets { background: #0f9d58; }
+    .tool-icon.drive  { background: linear-gradient(135deg, #4285f4, #34a853, #fbbc04); }
+
+    .tool-name {
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .learn-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 20px 24px;
+      flex: 1;
+      margin-bottom: 18px;
+    }
+
+    .learn-title {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .learn-title span { color: #ff7a00; }
+
+    .learn-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 28px;
+    }
+
+    .learn-grid li {
+      list-style: none;
+      color: rgba(255,255,255,0.88);
+      font-size: 14.5px;
+      font-weight: 600;
+      line-height: 1.55;
+      padding-right: 16px;
+      position: relative;
+    }
+
+    .learn-grid li::before {
+      content: '•';
+      position: absolute;
+      right: 0;
+      color: #ff7a00;
+      font-weight: 900;
+    }
+
+    .cta-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .register-box {
+      background: linear-gradient(135deg, #ff7a00, #ff5500);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qr-wrap {
+      background: #fff;
+      border-radius: 12px;
+      padding: 10px;
+      margin-bottom: 12px;
+    }
+
+    .qr-wrap img {
+      width: 130px;
+      height: 130px;
+      display: block;
+    }
+
+    .register-btn {
+      background: #061533;
+      color: #fff;
+      font-family: 'Cairo', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      padding: 10px 32px;
+      border-radius: 10px;
+      margin-bottom: 8px;
+    }
+
+    .form-link {
+      color: rgba(255,255,255,0.9);
+      font-size: 11px;
+      font-weight: 600;
+      direction: ltr;
+    }
+
+    .price-box {
+      background: rgba(0,0,0,0.3);
+      border: 2px solid #ff7a00;
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .price-label {
+      color: rgba(255,255,255,0.7);
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .old-price {
+      color: rgba(255,255,255,0.45);
+      font-size: 26px;
+      font-weight: 700;
+      text-decoration: line-through;
+      margin-bottom: 4px;
+    }
+
+    .new-price {
+      color: #ff7a00;
+      font-size: 64px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .new-price span {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 4px;
+    }
+
+    .tagline {
+      color: rgba(255,255,255,0.45);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .whatsapp {
+      color: #ff7a00;
+      font-size: 16px;
+      font-weight: 800;
+      direction: ltr;
+    }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <div class="inner">
+      <div class="top-bar">
+        <div class="logo">
+          <img src="logo-transparent.png" alt="Nathra" />
+        </div>
+        <div class="brand-tag">© 2026 Nathra | نثرة للبيانات</div>
+      </div>
+
+      <div class="hero">
+        <h1 class="title">دورة تنظيم البيانات<br/>وإدارة الملفات الرقمية</h1>
+        <p class="subtitle">
+          <span class="tools-text">Google Sheets &amp; Google Drive</span>
+          <span class="dash">—</span>
+          <span class="practical">بشكل عملي بحت</span>
+        </p>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="stat-label">المدة</div>
+          <div class="stat-value">3 أيام</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">الأسلوب</div>
+          <div class="stat-value">أونلاين مباشر</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">المشاريع</div>
+          <div class="stat-value">عملي 100%</div>
+        </div>
+      </div>
+
+      <div class="schedule-box">
+        <div class="schedule-title">🗓️ تواريخ البداية — يونيو 2026</div>
+        <div class="dates-row">
+          <div class="date-card">
+            <div class="day-tag">اليوم 1</div>
+            <div class="day-num">27</div>
+            <div class="day-month">يونيو</div>
+          </div>
+          <div class="date-card">
+            <div class="day-tag">اليوم 2</div>
+            <div class="day-num">28</div>
+            <div class="day-month">يونيو</div>
+          </div>
+          <div class="date-card">
+            <div class="day-tag">اليوم 3</div>
+            <div class="day-num">29</div>
+            <div class="day-month">يونيو</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tools-row">
+        <div class="tool-pill">
+          <div class="tool-icon sheets">S</div>
+          <span class="tool-name">Google Sheets</span>
+        </div>
+        <div class="tool-pill">
+          <div class="tool-icon drive">D</div>
+          <span class="tool-name">Google Drive</span>
+        </div>
+      </div>
+
+      <div class="learn-box">
+        <div class="learn-title"><span>✦</span> ماذا ستتعلم؟</div>
+        <ul class="learn-grid">
+          <li>إنشاء جداول احترافية</li>
+          <li>تنظيم الملفات في Google Drive</li>
+          <li>مشاركة الملفات والصلاحيات</li>
+          <li>إدخال البيانات بشكل منظم</li>
+          <li>إنشاء تقارير جاهزة</li>
+          <li>حسابات تلقائية (مثل الدرجات)</li>
+          <li>استخدام Google Forms</li>
+          <li>مشروع عملي تطبيقي داخل الدورة</li>
+        </ul>
+      </div>
+
+      <div class="cta-row">
+        <div class="register-box">
+          <div class="qr-wrap">
+            <img
+              src="https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=https%3A%2F%2Fforms.gle%2FSmU3Y1rmNffy5eG5A"
+              alt="QR"
+            />
+          </div>
+          <div class="register-btn">سجّل الآن</div>
+          <div class="form-link">forms.gle/SmU3Y1rmNffy5eG5A</div>
+        </div>
+        <div class="price-box">
+          <div class="price-label">عرض خاص</div>
+          <div class="old-price">115 ر.س</div>
+          <div class="new-price">75 <span>ر.س</span></div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="tagline">من نثر البيانات، نصنع المعنى.</div>
+        <div class="whatsapp">للاستفسارات: 0504581123</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+{
+  "outputName": "bootcamp-data-ai-poster-v2",
+  "layout": "ads",
+  "heroImage": "data-ai-hero.png",
+  "pageTitle": "معسكر تحليل البيانات والذكاء الاصطناعي — Nathra (نسخة 2)",
+  "brand": {
+    "logo": "logo-transparent.png",
+    "partnerLogo": "",
+    "partnerName": "شعار سهب",
+    "tag": "© 2026 Nathra × سهب"
+  },
+  "topBadge": "مقاعد محدودة — الأولوية للمسجلين مبكرًا",
+  "titleLines": [
+    "معسكر تحليل البيانات",
+    "والذكاء الاصطناعي"
+  ],
+  "subtitle": "بالشراكة مع سهب — برنامج مكثف من الأساسيات حتى تعلم الآلة",
+  "tools": [
+    { "name": "Excel", "icon": "excel-official.svg" },
+    { "name": "Power BI", "icon": "https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" },
+    { "name": "SQL", "icon": "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" },
+    { "name": "Machine Learning", "icon": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg" }
+  ],
+  "stats": [
+    { "icon": "⏱", "label": "المدة", "value": "8 أسابيع" },
+    { "icon": "📚", "label": "الساعات", "value": "124 ساعة" },
+    { "icon": "🌙", "label": "الوقت", "value": "8 – 10 مساءً" }
+  ],
+  "schedule": {
+    "title": "📅 تفاصيل المعسكر",
+    "monthTag": "يوليو 2026",
+    "summary": "تدريب مباشر عبر <strong>منصة سهب</strong> — مشاريع عملية + شهادة إتمام",
+    "days": [
+      { "session": "البداية", "weekday": "الأربعاء", "day": "1", "month": "يوليو" },
+      { "session": "الوقت", "weekday": "مسائي", "day": "8-10", "month": "مساءً" },
+      { "session": "الساعات", "weekday": "تطبيقي", "day": "124", "month": "ساعة" }
+    ]
+  },
+  "learn": {
+    "title": "محاور ومميزات المعسكر",
+    "subtitle": "مسار متكامل: تحليل · تصور · قواعد بيانات · ذكاء اصطناعي",
+    "columns": [
+      [
+        "Excel — 5 أيام (Pivot & تقارير)",
+        "Power BI — 25 يومًا (DAX & لوحات)",
+        "SQL — 15 يومًا (استعلامات وتحليل)",
+        "Machine Learning — 15 يومًا (نماذج وتطبيق)"
+      ],
+      [
+        "تدريب مباشر وتطبيقي 100%",
+        "تسجيلات المحاضرات للرجوع إليها",
+        "مشاريع لبناء ملف أعمال احترافي",
+        "دعم ومتابعة + شهادة إتمام"
+      ]
+    ]
+  },
+  "cta": {
+    "registerUrl": "https://wa.me/966504581123",
+    "registerLabel": "للتسجيل والاستفسار",
+    "registerButton": "سجل الآن",
+    "priceLabel": "عرض التسجيل الحالي",
+    "limitedTag": "عرض",
+    "oldPrice": "1400 ر.س",
+    "newPrice": "899",
+    "currency": "ر.س"
+  },
+  "footer": {
+    "tagline": "من نثر البيانات، نصنع المعنى.",
+    "whatsapp": "0504581123"
+  }
+}

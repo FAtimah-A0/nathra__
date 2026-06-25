@@ -1,0 +1,96 @@
+{
+  "outputName": "bootcamp-treasure-map-trainers",
+  "heroImage": "data-ai-hero.png",
+  "pageTitle": "خريطة المعسكر — فريق مدربي Nathra",
+  "showTrainer": true,
+  "audienceBadge": "🧭 نسخة المدربين — Nathra",
+  "title": "خريطة رحلة المعسكر",
+  "subtitle": "فريق نثره يقودك خطوة بخطوة نحو الكنز",
+  "journeyLabel": "مسار الكنز — فريق التدريب",
+  "startLabel": "🏴 نقطة الانطلاق",
+  "steps": [
+    {
+      "order": 1,
+      "icon": "📗",
+      "module": "Microsoft Excel",
+      "landmark": "جزيرة الجداول",
+      "daysCount": "15 يومًا",
+      "dateFrom": "1/7",
+      "dateTo": "15/7",
+      "duration": "1/7 → 15/7",
+      "skills": "Pivot · تقارير · تنظيف البيانات",
+      "trainer": {
+        "name": "Fatimah Al-Huwaiti",
+        "title": "Microsoft Certified Trainer | Data Analyst",
+        "highlights": ["Excel & Power BI", "IBM Data Analyst", "Dashboards & KPIs"]
+      }
+    },
+    {
+      "order": 2,
+      "icon": "📊",
+      "module": "Power BI",
+      "landmark": "خليج التصور",
+      "daysCount": "15 يومًا",
+      "dateFrom": "16/7",
+      "dateTo": "31/7",
+      "duration": "16/7 → 31/7",
+      "skills": "DAX · Dashboards · KPIs",
+      "trainer": {
+        "name": "Walid Abdulazim",
+        "title": "Data Analyst & Trainer",
+        "highlights": ["Excel · Power BI · SQL", "Interactive Reports", "Python"]
+      }
+    },
+    {
+      "order": 3,
+      "icon": "🗄️",
+      "module": "SQL",
+      "landmark": "مغارة البيانات",
+      "daysCount": "15 يومًا",
+      "dateFrom": "1/8",
+      "dateTo": "15/8",
+      "duration": "1/8 → 15/8",
+      "skills": "استعلامات · MySQL · هيكلة البيانات",
+      "trainer": {
+        "name": "Yasmin Al-Balawi",
+        "title": "SQL & Data Analysis Specialist",
+        "highlights": ["IBM SQL", "IBM Data Analytics", "Project Management"]
+      }
+    },
+    {
+      "order": 4,
+      "icon": "💎",
+      "module": "Machine Learning & AI",
+      "landmark": "كنز الذكاء الاصطناعي",
+      "daysCount": "15 يومًا",
+      "dateFrom": "16/8",
+      "dateTo": "31/8",
+      "duration": "16/8 → 31/8",
+      "skills": "نماذج · NLP · Computer Vision · Agentic AI",
+      "trainer": {
+        "name": "Ahmad Al-Harbi",
+        "title": "AI Engineer | Tuwaiq Academy Graduate",
+        "highlights": ["Computer Vision & NLP", "LLMs & Agentic AI", "GASTAT Hackathon 🥈"]
+      }
+    }
+  ],
+  "meta": {
+    "startDate": "1 يوليو 2026 — الأربعاء",
+    "totalHours": "124 ساعة",
+    "totalWeeks": "8 أسابيع",
+    "timeSlot": "8 – 10 مساءً"
+  },
+  "treasure": {
+    "title": "🏆 الكنز: شهادة + ملف أعمال",
+    "subtitle": "مشاريع عملية · تدريب مباشر · منصة سهب"
+  },
+  "brand": {
+    "logo": "logo-transparent.png",
+    "partnerLogo": "sahab-logo.png",
+    "partnerName": "شعار سهب",
+    "tag": "© 2026 Nathra × سهب"
+  },
+  "footer": {
+    "tagline": "من نثر البيانات، نصنع المعنى."
+  }
+}

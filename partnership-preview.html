@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Partnership Preview — Nathra × Sahab</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;800&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #061228;
+      padding: 40px;
+    }
+    .canvas {
+      width: 900px;
+      padding: 48px 40px;
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255, 120, 0, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(30, 58, 138, 0.18) 0%, transparent 40%),
+        linear-gradient(165deg, #0a224f 0%, #061535 100%);
+      border: 1px solid rgba(255, 140, 40, 0.15);
+    }
+    .label {
+      text-align: center;
+      color: rgba(255,255,255,0.45);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 28px;
+      letter-spacing: 0.5px;
+    }
+    .partnership-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      direction: ltr;
+      background: rgba(6, 21, 53, 0.55);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 22px 28px;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+    }
+    .logo-slot {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 200px;
+      padding: 12px 20px;
+    }
+    .logo-slot.nathra::before {
+      content: '';
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(255, 140, 40, 0.55) 0%, rgba(255, 100, 0, 0.2) 40%, transparent 72%);
+      filter: blur(22px);
+      pointer-events: none;
+    }
+    .logo-slot.sahab {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 5px 9px;
+      box-shadow:
+        0 2px 10px rgba(130, 140, 155, 0.22),
+        0 0 0 1px rgba(200, 205, 215, 0.35);
+    }
+    .logo-slot.sahab::before {
+      content: '';
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(190, 198, 210, 0.38) 0%, rgba(150, 158, 172, 0.16) 45%, transparent 72%);
+      filter: blur(20px);
+      pointer-events: none;
+    }
+    .logo-slot img {
+      position: relative;
+      z-index: 1;
+      object-fit: contain;
+    }
+    .logo-slot.nathra img {
+      height: 82px;
+      width: auto;
+      filter: drop-shadow(0 0 16px rgba(255, 120, 0, 0.35));
+    }
+    .logo-slot.sahab img {
+      height: 54px;
+      width: auto;
+      filter: drop-shadow(0 1px 6px rgba(120, 130, 145, 0.2));
+    }
+    .divider {
+      width: 2px;
+      height: 72px;
+      background: linear-gradient(180deg, rgba(255, 140, 40, 0.15), rgba(255, 140, 40, 0.85) 35%, rgba(59, 100, 200, 0.85) 65%, rgba(59, 100, 200, 0.15));
+      border-radius: 2px;
+      flex-shrink: 0;
+      box-shadow: 0 0 12px rgba(255, 140, 40, 0.25);
+    }
+    .partnership-text {
+      text-align: center;
+      margin-top: 20px;
+      color: rgba(255,255,255,0.5);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .partnership-text span {
+      color: #ff8c2a;
+    }
+    .partnership-text span.blue {
+      color: #6b9cff;
+    }
+    .note {
+      margin-top: 24px;
+      text-align: center;
+      color: rgba(255,255,255,0.35);
+      font-size: 11px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="label">مثال — الخيار 1: توأم الإضاءة (بدون تعديل الشعارين)</div>
+    <div class="partnership-bar">
+      <div class="logo-slot nathra">
+        <img src="logo-transparent.png" alt="Nathra" />
+      </div>
+      <div class="divider"></div>
+      <div class="logo-slot sahab">
+        <img src="sahab-logo.png" alt="Sahab" />
+      </div>
+    </div>
+    <div class="partnership-text">
+      <span>Nathra</span> × <span class="blue">سهb</span> — شراكة تدريبية
+    </div>
+    <div class="note">
+      Nathra: وهج برتقالي · سهb: إطار أصغر + إضاءة رمادية خافتة · الشعاران كما هما
+    </div>
+  </div>
+</body>
+</html>

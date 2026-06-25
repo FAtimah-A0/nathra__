@@ -1,0 +1,27 @@
+{
+  "name": "14-nahtra-9",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u00001\u00004\u0000N\u0000a\u0000t\u0000h\u0000r\u0000a\u0000-\u00009\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "build:ad": "node poster-kit/build-ad.mjs poster-kit/configs/course-data-org.json",
+    "build:ad:bootcamp": "node poster-kit/build-ad.mjs poster-kit/configs/bootcamp-data-ai.json",
+    "build:ad:bootcamp:all": "node poster-kit/save-and-build-bootcamp.mjs",
+    "save:bootcamp:before-sahab": "node poster-kit/save-before-sahab-logo.mjs",
+    "build:treasure-maps": "node poster-kit/build-treasure-maps-all.mjs",
+    "build:ad:bootcamp:landscape": "node poster-kit/build-ad.mjs poster-kit/configs/bootcamp-data-ai-landscape.json",
+    "build:ad:example": "node poster-kit/build-ad.mjs poster-kit/configs/example-new-ad.json",
+    "poster": "node generate-poster.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FAtimah-A0/14Nathra-9.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FAtimah-A0/14Nathra-9/issues"
+  },
+  "homepage": "https://github.com/FAtimah-A0/14Nathra-9#readme"
+}

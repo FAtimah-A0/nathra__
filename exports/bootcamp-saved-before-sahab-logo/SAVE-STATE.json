@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-06-20",
+  "status": "ready-for-sahab-logo",
+  "note": "شعار سهب غير مضاف بعد. عند توفر الملف ضع اسمه في brand.partnerLogo داخل config.json",
+  "partnerLogoField": "brand.partnerLogo",
+  "partnerLogoCurrent": "",
+  "partnerNamePlaceholder": "شعار سهب",
+  "versions": {
+    "v1": {
+      "layout": "bg",
+      "folder": "v1-bg",
+      "outputName": "bootcamp-data-ai-poster"
+    },
+    "v2": {
+      "layout": "ads",
+      "folder": "v2-ads",
+      "outputName": "bootcamp-data-ai-poster-v2"
+    }
+  },
+  "howToAddLogo": "1) ضع ملف الشعار في مجلد المشروع (مثل sahab-logo.png)  2) حدّث brand.partnerLogo في configs  3) npm run build:ad:bootcamp:all"
+}

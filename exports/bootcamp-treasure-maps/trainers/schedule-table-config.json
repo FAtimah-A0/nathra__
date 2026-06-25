@@ -1,0 +1,60 @@
+{
+  "outputName": "bootcamp-trainer-schedule-table",
+  "heroImage": "data-ai-hero.png",
+  "pageTitle": "جدول المعسكر — فريق مدربي Nathra",
+  "title": "جدول محطات المعسكر",
+  "subtitle": "تواريخ ومدربين — نسخة بيانات للمدربين",
+  "steps": [
+    {
+      "order": 1,
+      "landmark": "جزيرة الجداول",
+      "module": "Microsoft Excel",
+      "daysCount": "15 يومًا",
+      "dateFrom": "1/7",
+      "dateTo": "15/7",
+      "trainer": { "name": "Fatimah Al-Huwaiti" }
+    },
+    {
+      "order": 2,
+      "landmark": "خليج التصور",
+      "module": "Power BI",
+      "daysCount": "15 يومًا",
+      "dateFrom": "16/7",
+      "dateTo": "31/7",
+      "trainer": { "name": "Walid Abdulazim" }
+    },
+    {
+      "order": 3,
+      "landmark": "مغارة البيانات",
+      "module": "SQL",
+      "daysCount": "15 يومًا",
+      "dateFrom": "1/8",
+      "dateTo": "15/8",
+      "trainer": { "name": "Yasmin Al-Balawi" }
+    },
+    {
+      "order": 4,
+      "landmark": "كنز الذكاء الاصطناعي",
+      "module": "Machine Learning & AI",
+      "daysCount": "15 يومًا",
+      "dateFrom": "16/8",
+      "dateTo": "31/8",
+      "trainer": { "name": "Ahmad Al-Harbi" }
+    }
+  ],
+  "meta": {
+    "startDate": "1 يوليو 2026 — الأربعاء",
+    "totalHours": "124 ساعة",
+    "totalWeeks": "8 أسابيع",
+    "timeSlot": "8 – 10 مساءً"
+  },
+  "brand": {
+    "logo": "logo-transparent.png",
+    "partnerLogo": "sahab-logo.png",
+    "partnerName": "شعار سهب",
+    "tag": "© 2026 Nathra × سهب"
+  },
+  "footer": {
+    "tagline": "من نثر البيانات، نصنع المعنى."
+  }
+}

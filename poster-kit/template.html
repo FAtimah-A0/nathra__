@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=1080" />
-  <title>دورة تنظيم البيانات — Nathra</title>
+  <title>{{PAGE_TITLE}}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
@@ -111,19 +111,51 @@
       overflow: visible;
     }
 
+    .brand-logos {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .partner-logo-wrap {
+      width: 118px;
+      height: 78px;
+      margin-top: 10px;
+      border: 1px dashed rgba(255, 140, 40, 0.35);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .partner-logo-wrap img {
+      max-width: 96px;
+      max-height: 64px;
+      object-fit: contain;
+    }
+
+    .partner-logo-placeholder span {
+      color: rgba(255, 255, 255, 0.38);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
     .logo-scale {
       position: relative;
       display: flex;
       align-items: center;
       height: auto;
-      transform: scale(1.4) translateY(20px);
+      transform: scale(1.05) translateY(10px);
       transform-origin: left top;
     }
 
     .logo-glow {
       position: absolute;
-      width: 200px;
-      height: 200px;
+      width: 140px;
+      height: 140px;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
@@ -149,7 +181,7 @@
     }
 
     .logo-wrap img {
-      height: 118px;
+      height: 82px;
       width: auto;
       position: relative;
       z-index: 1;
@@ -166,7 +198,7 @@
       font-weight: 800;
       padding: 7px 24px;
       border-radius: 30px;
-      margin-top: 108px;
+      margin-top: 82px;
       margin-bottom: 16px;
     }
 
@@ -208,30 +240,31 @@
     .tools-row {
       display: flex;
       justify-content: center;
-      gap: 14px;
-      margin-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
     }
 
     .tool-pill {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255, 140, 40, 0.25);
       box-shadow: 0 0 20px rgba(255, 100, 0, 0.1);
       border-radius: 40px;
-      padding: 8px 20px 8px 16px;
+      padding: 6px 14px 6px 12px;
     }
 
     .tool-icon img {
-      width: 28px;
-      height: 28px;
+      width: 24px;
+      height: 24px;
       display: block;
     }
 
     .tool-name {
       color: rgba(255,255,255,0.92);
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 700;
     }
 
@@ -625,163 +658,82 @@
 
     <div class="inner">
       <div class="top-bar">
-        <div class="logo-wrap">
-          <div class="logo-scale">
-            <div class="logo-glow"></div>
-            <img src="logo-transparent.png" alt="Nathra" />
+        <div class="brand-logos">
+          <div class="logo-wrap">
+            <div class="logo-scale">
+              <div class="logo-glow"></div>
+              <img src="{{LOGO_SRC}}" alt="Nathra" />
+            </div>
+          </div>
+          <div class="partner-logo-wrap">
+            {{PARTNER_LOGO_BLOCK}}
           </div>
         </div>
-        <div class="brand-tag">© 2026 Nathra | نثرة للبيانات</div>
+        <div class="brand-tag">{{BRAND_TAG}}</div>
       </div>
 
-      <div class="top-badge">عرض لفترة محدودة — مقاعد محدودة</div>
+      <div class="top-badge">{{TOP_BADGE}}</div>
 
       <div class="hero">
-        <h1 class="title">دورة تنظيم البيانات<br/>وإدارة الملفات الرقمية</h1>
-        <p class="subtitle">بشكل عملي بحت — Google Sheets &amp; Google Drive</p>
+        <h1 class="title">{{TITLE_HTML}}</h1>
+        <p class="subtitle">{{SUBTITLE}}</p>
       </div>
 
       <div class="tools-row">
-
-        <div class="tool-pill">
-          <div class="tool-icon">
-            <img src="https://www.gstatic.com/images/branding/product/2x/drive_2020q4_48dp.png" alt="Google Drive" />
-          </div>
-          <span class="tool-name">Google Drive</span>
-        </div>
-
-        <div class="tool-pill">
-          <div class="tool-icon">
-            <img src="https://www.gstatic.com/images/branding/product/2x/sheets_2020q4_48dp.png" alt="Google Sheets" />
-          </div>
-          <span class="tool-name">Google Sheets</span>
-        </div>
+{{TOOLS_ROW}}
       </div>
 
       <div class="content-area">
         <div class="stats-strip">
-
-          <div class="stat-card">
-            <div class="stat-icon">⏱</div>
-            <div class="stat-label">المدة</div>
-            <div class="stat-value">3 أيام</div>
-          </div>
-
-          <div class="stat-card">
-            <div class="stat-icon">💻</div>
-            <div class="stat-label">الأسلوب</div>
-            <div class="stat-value">أونلاين مباشر</div>
-          </div>
-
-          <div class="stat-card">
-            <div class="stat-icon">🎯</div>
-            <div class="stat-label">المشاريع</div>
-            <div class="stat-value">عملي 100%</div>
-          </div>
+{{STATS_STRIP}}
         </div>
 
         <div class="schedule-panel">
           <div class="schedule-header">
-            <span class="title-text">🗓️ مواعيد الدورة</span>
-            <span class="month-tag">يونيو 2026</span>
+            <span class="title-text">{{SCHEDULE_TITLE}}</span>
+            <span class="month-tag">{{SCHEDULE_MONTH}}</span>
           </div>
           <div class="dates-strip">
-
-            <div class="date-block">
-              <div class="date-block-top">
-                <span class="session">اليوم 1</span>
-                <span class="weekday">الجمعة</span>
-              </div>
-              <div class="date-block-body">
-                <div class="day-num">27</div>
-                <div class="day-month">يونيو</div>
-              </div>
-            </div>
-
-            <div class="date-block">
-              <div class="date-block-top">
-                <span class="session">اليوم 2</span>
-                <span class="weekday">السبت</span>
-              </div>
-              <div class="date-block-body">
-                <div class="day-num">28</div>
-                <div class="day-month">يونيو</div>
-              </div>
-            </div>
-
-            <div class="date-block">
-              <div class="date-block-top">
-                <span class="session">اليوم 3</span>
-                <span class="weekday">الأحد</span>
-              </div>
-              <div class="date-block-body">
-                <div class="day-num">29</div>
-                <div class="day-month">يونيو</div>
-              </div>
-            </div>
+{{DATES_STRIP}}
           </div>
-          <div class="dates-summary">3 أيام متتالية — <strong>27 / 28 / 29 يونيو</strong></div>
+          <div class="dates-summary">{{DATES_SUMMARY}}</div>
         </div>
 
-
-        <div class="learn-panel">
-          <div class="learn-header">
-            <div class="learn-title">ماذا ستتعلم؟</div>
-            <div class="learn-sub">بناءً على استبيان المتدربين</div>
-          </div>
-          <div class="learn-columns">
-            <div class="learn-col">
-              <div class="learn-point"><div class="learn-check">✓</div><span>إنشاء جداول احترافية</span></div>
-
-              <div class="learn-point"><div class="learn-check">✓</div><span>مشاركة الملفات والصلاحيات</span></div>
-
-              <div class="learn-point"><div class="learn-check">✓</div><span>إنشاء تقارير جاهزة</span></div>
-
-              <div class="learn-point"><div class="learn-check">✓</div><span>استخدام Google Forms</span></div></div>
-            <div class="learn-col">
-              <div class="learn-point"><div class="learn-check">✓</div><span>تنظيم الملفات في Drive</span></div>
-
-              <div class="learn-point"><div class="learn-check">✓</div><span>إدخال البيانات بشكل منظم</span></div>
-
-              <div class="learn-point"><div class="learn-check">✓</div><span>حسابات تلقائية (مثل الدرجات)</span></div>
-
-              <div class="learn-point"><div class="learn-check">✓</div><span>مشروع عملي داخل الدورة</span></div></div>
-          </div>
-        </div>
+{{LEARN_PANEL}}
       </div>
 
       <div class="cta-row">
         <a
           class="register-link"
-          href="https://forms.gle/R8v7CKPvT7RX9rKH9"
+          href="{{REGISTER_URL}}"
           target="_blank"
           rel="noopener noreferrer"
         >
           <div class="register-box">
             <div class="qr-wrap">
               <img
-                src="https://api.qrserver.com/v1/create-qr-code/?size=105x105&data=https%3A%2F%2Fforms.gle%2FR8v7CKPvT7RX9rKH9"
+                src="{{QR_IMAGE_URL}}"
                 alt="QR"
               />
             </div>
             <div class="register-content">
-              <div class="register-label">تسجيل</div>
-              <div class="register-btn">سجل الآن</div>
-              <div class="form-link">forms.gle/R8v7CKPvT7RX9rKH9</div>
+              <div class="register-label">{{REGISTER_LABEL}}</div>
+              <div class="register-btn">{{REGISTER_BUTTON}}</div>
+              <div class="form-link">{{FORM_LINK}}</div>
             </div>
           </div>
         </a>
         <div class="price-box">
-          <div class="limited-tag">عرض</div>
-          <div class="price-label">عرض خاص لفترة محدودة</div>
-          <div class="old-price">115 ر.س</div>
-          <div class="new-price">75 <span>ر.س</span></div>
+          <div class="limited-tag">{{LIMITED_TAG}}</div>
+          <div class="price-label">{{PRICE_LABEL}}</div>
+          <div class="old-price">{{OLD_PRICE}}</div>
+          <div class="new-price">{{NEW_PRICE}} <span>{{CURRENCY}}</span></div>
         </div>
       </div>
 
       <div class="footer">
-        <div class="tagline">من نثر البيانات، نصنع المعنى.</div>
-        <div class="whatsapp">للاستفسارات: 0504581123</div>
+        <div class="tagline">{{FOOTER_TAGLINE}}</div>
+        <div class="whatsapp">{{FOOTER_WHATSAPP}}</div>
       </div>
     </div>
   </div>

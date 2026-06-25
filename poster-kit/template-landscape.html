@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1920" />
+  <title>{{PAGE_TITLE}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #061228;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .poster {
+      width: 1920px;
+      height: 1080px;
+      padding: 28px 36px;
+      display: flex;
+      background: linear-gradient(135deg, #0c2563 0%, #0a1e4a 50%, #061535 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .glow {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(90px);
+    }
+    .glow-1 { width: 420px; height: 420px; top: -100px; right: -80px; background: rgba(255, 120, 0, 0.25); }
+    .glow-2 { width: 360px; height: 360px; bottom: -80px; left: -60px; background: rgba(255, 90, 0, 0.18); }
+    .inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 24px;
+      width: 100%;
+      height: 100%;
+    }
+    .side-hero {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      border: 1px solid rgba(255, 140, 40, 0.18);
+      border-radius: 20px;
+      padding: 22px 22px 18px;
+      background: rgba(255,255,255,0.03);
+    }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      direction: ltr;
+    }
+    .brand-logos { display: flex; align-items: flex-start; gap: 12px; }
+    .logo-scale { transform: scale(0.92) translateY(6px); transform-origin: left top; position: relative; }
+    .logo-glow {
+      position: absolute; width: 110px; height: 110px; left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(255, 140, 40, 0.55) 0%, transparent 70%);
+      filter: blur(18px);
+    }
+    .logo-wrap img { height: 72px; width: auto; position: relative; z-index: 1; }
+    .partner-logo-wrap {
+      width: 96px; height: 64px; margin-top: 8px;
+      border: 1px dashed rgba(255, 140, 40, 0.35); border-radius: 10px;
+      background: rgba(255,255,255,0.04);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .partner-logo-wrap img { max-width: 78px; max-height: 52px; object-fit: contain; }
+    .partner-logo-placeholder span { color: rgba(255,255,255,0.38); font-size: 10px; font-weight: 700; }
+    .brand-tag { color: rgba(255,255,255,0.45); font-size: 11px; font-weight: 600; padding-top: 6px; }
+    .top-badge {
+      align-self: center;
+      background: rgba(255, 120, 0, 0.12);
+      border: 1px solid rgba(255, 140, 40, 0.45);
+      color: #ffb347; font-size: 13px; font-weight: 800;
+      padding: 6px 18px; border-radius: 30px; text-align: center;
+    }
+    .title { color: #fff; font-size: 34px; font-weight: 900; line-height: 1.35; text-align: center; }
+    .subtitle { color: #ff8c2a; font-size: 15px; font-weight: 700; text-align: center; line-height: 1.5; }
+    .tools-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+    .tool-pill {
+      display: flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255, 140, 40, 0.25);
+      border-radius: 40px; padding: 5px 12px 5px 10px;
+    }
+    .tool-icon img { width: 20px; height: 20px; display: block; }
+    .tool-name { color: rgba(255,255,255,0.92); font-size: 11px; font-weight: 700; }
+    .side-cta { margin-top: auto; display: grid; grid-template-columns: 1fr 0.85fr; gap: 10px; }
+    .register-link { text-decoration: none; color: inherit; display: block; }
+    .register-box {
+      background: linear-gradient(135deg, #ff8c2a 0%, #ff5500 100%);
+      border-radius: 14px; padding: 12px; display: flex; align-items: center; gap: 10px;
+      box-shadow: 0 8px 32px rgba(255, 100, 0, 0.35);
+    }
+    .qr-wrap { background: #fff; border-radius: 8px; padding: 5px; flex-shrink: 0; }
+    .qr-wrap img { width: 72px; height: 72px; display: block; }
+    .register-content { flex: 1; text-align: center; }
+    .register-label { color: rgba(255,255,255,0.85); font-size: 10px; font-weight: 700; }
+    .register-btn { color: #fff; font-size: 20px; font-weight: 900; margin: 2px 0; }
+    .form-link { color: rgba(255,255,255,0.9); font-size: 9px; font-weight: 600; direction: ltr; }
+    .price-box {
+      background: rgba(0,0,0,0.5); border: 2px solid rgba(255, 140, 40, 0.6);
+      border-radius: 14px; padding: 12px 10px; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; position: relative;
+    }
+    .limited-tag {
+      position: absolute; top: 8px; left: 8px; background: #e53935; color: #fff;
+      font-size: 9px; font-weight: 800; padding: 2px 7px; border-radius: 5px;
+    }
+    .price-label { color: rgba(255,255,255,0.75); font-size: 11px; font-weight: 700; margin-bottom: 4px; text-align: center; }
+    .old-price { color: rgba(255,255,255,0.35); font-size: 16px; font-weight: 700; text-decoration: line-through; }
+    .new-price { color: #ff8c2a; font-size: 38px; font-weight: 900; line-height: 1; }
+    .new-price span { font-size: 16px; font-weight: 700; }
+    .side-content { display: flex; flex-direction: column; gap: 12px; min-height: 0; }
+    .stats-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .stat-card {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255, 140, 40, 0.2);
+      border-radius: 12px; padding: 10px; text-align: center;
+    }
+    .stat-icon { font-size: 18px; margin-bottom: 4px; }
+    .stat-label { color: rgba(255,255,255,0.5); font-size: 11px; font-weight: 600; }
+    .stat-value { color: #ff8c2a; font-size: 15px; font-weight: 800; }
+    .schedule-panel {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255, 140, 40, 0.18);
+      border-radius: 14px; padding: 12px 14px;
+    }
+    .schedule-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .schedule-header .title-text { color: #fff; font-size: 14px; font-weight: 800; }
+    .month-tag {
+      background: linear-gradient(135deg, rgba(255, 140, 40, 0.25), rgba(255, 100, 0, 0.1));
+      color: #ffb347; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 16px;
+      border: 1px solid rgba(255, 140, 40, 0.35);
+    }
+    .dates-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .date-block {
+      background: rgba(6, 21, 53, 0.75); border: 1px solid rgba(255, 140, 40, 0.22);
+      border-radius: 12px; overflow: hidden;
+    }
+    .date-block-top {
+      background: rgba(255, 140, 40, 0.12); padding: 6px 8px;
+      display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255, 140, 40, 0.15);
+    }
+    .date-block-top .session { color: rgba(255,255,255,0.55); font-size: 10px; font-weight: 700; }
+    .date-block-top .weekday { color: #ffb347; font-size: 10px; font-weight: 800; }
+    .date-block-body { padding: 10px 8px; text-align: center; }
+    .day-num { color: #ff8c2a; font-size: 28px; font-weight: 900; line-height: 1; }
+    .day-month { color: rgba(255,255,255,0.7); font-size: 11px; font-weight: 700; margin-top: 4px; }
+    .dates-summary { margin-top: 8px; text-align: center; color: rgba(255,255,255,0.5); font-size: 11px; font-weight: 600; }
+    .dates-summary strong { color: #ff8c2a; }
+    .learn-panel {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255, 140, 40, 0.18);
+      border-radius: 14px; padding: 14px 16px; flex: 1;
+    }
+    .learn-header { text-align: center; margin-bottom: 10px; }
+    .learn-title { color: #ffb347; font-size: 16px; font-weight: 900; margin-bottom: 4px; }
+    .learn-sub { color: rgba(255,255,255,0.45); font-size: 11px; font-weight: 600; }
+    .learn-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; position: relative; }
+    .learn-columns::before {
+      content: ''; position: absolute; top: 4px; bottom: 4px; left: 50%; width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(255, 140, 40, 0.35), transparent);
+      transform: translateX(-50%);
+    }
+    .learn-col { display: flex; flex-direction: column; gap: 7px; }
+    .learn-point { display: flex; align-items: center; gap: 8px; }
+    .learn-check {
+      width: 18px; height: 18px; min-width: 18px; border-radius: 50%;
+      background: rgba(255, 140, 40, 0.15); border: 1px solid rgba(255, 140, 40, 0.45);
+      display: flex; align-items: center; justify-content: center;
+      color: #ff8c2a; font-size: 10px; font-weight: 900;
+    }
+    .learn-point span { color: rgba(255,255,255,0.9); font-size: 11.5px; font-weight: 600; line-height: 1.35; }
+    .footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+    .tagline { color: rgba(255,255,255,0.35); font-size: 12px; font-weight: 600; }
+    .whatsapp { color: #ff8c2a; font-size: 14px; font-weight: 800; direction: ltr; }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="inner">
+      <section class="side-hero">
+        <div class="top-bar">
+          <div class="brand-logos">
+            <div class="logo-wrap">
+              <div class="logo-scale">
+                <div class="logo-glow"></div>
+                <img src="{{LOGO_SRC}}" alt="Nathra" />
+              </div>
+            </div>
+            <div class="partner-logo-wrap">{{PARTNER_LOGO_BLOCK}}</div>
+          </div>
+          <div class="brand-tag">{{BRAND_TAG}}</div>
+        </div>
+        <div class="top-badge">{{TOP_BADGE}}</div>
+        <h1 class="title">{{TITLE_HTML}}</h1>
+        <p class="subtitle">{{SUBTITLE}}</p>
+        <div class="tools-row">{{TOOLS_ROW}}</div>
+        <div class="side-cta">
+          <a class="register-link" href="{{REGISTER_URL}}" target="_blank" rel="noopener noreferrer">
+            <div class="register-box">
+              <div class="qr-wrap"><img src="{{QR_IMAGE_URL}}" alt="QR" /></div>
+              <div class="register-content">
+                <div class="register-label">{{REGISTER_LABEL}}</div>
+                <div class="register-btn">{{REGISTER_BUTTON}}</div>
+                <div class="form-link">{{FORM_LINK}}</div>
+              </div>
+            </div>
+          </a>
+          <div class="price-box">
+            <div class="limited-tag">{{LIMITED_TAG}}</div>
+            <div class="price-label">{{PRICE_LABEL}}</div>
+            <div class="old-price">{{OLD_PRICE}}</div>
+            <div class="new-price">{{NEW_PRICE}} <span>{{CURRENCY}}</span></div>
+          </div>
+        </div>
+        <div class="footer">
+          <div class="tagline">{{FOOTER_TAGLINE}}</div>
+          <div class="whatsapp">{{FOOTER_WHATSAPP}}</div>
+        </div>
+      </section>
+      <section class="side-content">
+        <div class="stats-strip">{{STATS_STRIP}}</div>
+        <div class="schedule-panel">
+          <div class="schedule-header">
+            <span class="title-text">{{SCHEDULE_TITLE}}</span>
+            <span class="month-tag">{{SCHEDULE_MONTH}}</span>
+          </div>
+          <div class="dates-strip">{{DATES_STRIP}}</div>
+          <div class="dates-summary">{{DATES_SUMMARY}}</div>
+        </div>
+        {{LEARN_PANEL}}
+      </section>
+    </div>
+  </div>
+</body>
+</html>

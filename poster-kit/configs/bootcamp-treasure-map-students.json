@@ -1,0 +1,76 @@
+{
+  "outputName": "bootcamp-treasure-map-students",
+  "heroImage": "data-ai-hero.png",
+  "pageTitle": "خريطة معسكر تحليل البيانات والذكاء الاصطناعي — Nathra",
+  "showTrainer": false,
+  "audienceBadge": "🎒 نسخة الطلاب",
+  "title": "خريطة رحلة المعسكر",
+  "subtitle": "اتبع المسار خطوة بخطوة حتى تصل إلى الكنز",
+  "journeyLabel": "مسار الكنز",
+  "startLabel": "🏴 نقطة الانطلاق",
+  "steps": [
+    {
+      "order": 1,
+      "icon": "📗",
+      "module": "Microsoft Excel",
+      "landmark": "جزيرة الجداول",
+      "daysCount": "15 يومًا",
+      "dateFrom": "1/7",
+      "dateTo": "15/7",
+      "duration": "1/7 → 15/7",
+      "skills": "Pivot · تقارير · تنظيف البيانات"
+    },
+    {
+      "order": 2,
+      "icon": "📊",
+      "module": "Power BI",
+      "landmark": "خليج التصور",
+      "daysCount": "15 يومًا",
+      "dateFrom": "16/7",
+      "dateTo": "31/7",
+      "duration": "16/7 → 31/7",
+      "skills": "DAX · Dashboards · KPIs"
+    },
+    {
+      "order": 3,
+      "icon": "🗄️",
+      "module": "SQL",
+      "landmark": "مغارة البيانات",
+      "daysCount": "15 يومًا",
+      "dateFrom": "1/8",
+      "dateTo": "15/8",
+      "duration": "1/8 → 15/8",
+      "skills": "استعلامات · MySQL · هيكلة البيانات"
+    },
+    {
+      "order": 4,
+      "icon": "💎",
+      "module": "Machine Learning & AI",
+      "landmark": "كنز الذكاء الاصطناعي",
+      "daysCount": "15 يومًا",
+      "dateFrom": "16/8",
+      "dateTo": "31/8",
+      "duration": "16/8 → 31/8",
+      "skills": "نماذج · NLP · Computer Vision · Agentic AI"
+    }
+  ],
+  "meta": {
+    "startDate": "1 يوليو 2026 — الأربعاء",
+    "totalHours": "124 ساعة",
+    "totalWeeks": "8 أسابيع",
+    "timeSlot": "8 – 10 مساءً"
+  },
+  "treasure": {
+    "title": "🏆 الكنز: شهادة + ملف أعمال",
+    "subtitle": "مشاريع عملية · تدريب مباشر · منصة سهب"
+  },
+  "brand": {
+    "logo": "logo-transparent.png",
+    "partnerLogo": "sahab-logo.png",
+    "partnerName": "شعار سهب",
+    "tag": "© 2026 Nathra × سهب"
+  },
+  "footer": {
+    "tagline": "من نثر البيانات، نصنع المعنى."
+  }
+}

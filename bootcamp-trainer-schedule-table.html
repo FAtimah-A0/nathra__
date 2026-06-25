@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1080" />
+  <title>جدول المعسكر — فريق مدربي Nathra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #061228;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .poster {
+      width: 1080px;
+      height: 1350px;
+      position: relative;
+      overflow: hidden;
+      background: #061535;
+    }
+    .bg-image {
+      position: absolute;
+      inset: 0;
+      background-image: url('data-ai-hero.png');
+      background-size: cover;
+      background-position: center 35%;
+      transform: scale(1.06);
+      z-index: 0;
+    }
+    .bg-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(6, 18, 40, 0.88) 0%, rgba(10, 30, 74, 0.92) 45%, rgba(6, 21, 53, 0.94) 100%);
+      z-index: 0;
+    }
+    .inner {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      padding: 32px 36px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      direction: ltr;
+    }
+        .partnership-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      direction: ltr;
+      background: rgba(6, 21, 53, 0.55);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 8px 14px;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+      flex-shrink: 0;
+    }
+
+    .logo-slot {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 12px;
+    }
+
+    .logo-slot.nathra::before {
+      content: '';
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(255, 140, 40, 0.55) 0%, rgba(255, 100, 0, 0.2) 40%, transparent 72%);
+      filter: blur(20px);
+      pointer-events: none;
+    }
+
+    .logo-slot.sahab {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 4px 8px;
+      box-shadow:
+        0 2px 10px rgba(130, 140, 155, 0.22),
+        0 0 0 1px rgba(200, 205, 215, 0.35);
+    }
+
+    .logo-slot.sahab::before {
+      content: '';
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(190, 198, 210, 0.38) 0%, rgba(150, 158, 172, 0.16) 45%, transparent 72%);
+      filter: blur(18px);
+      pointer-events: none;
+    }
+
+    .logo-slot img,
+    .logo-slot .partner-logo-img {
+      position: relative;
+      z-index: 1;
+      object-fit: contain;
+    }
+
+    .logo-slot.nathra img {
+      height: 78px;
+      width: auto;
+      filter: drop-shadow(0 0 14px rgba(255, 120, 0, 0.35));
+    }
+
+    .logo-slot.sahab img,
+    .logo-slot.sahab .partner-logo-img {
+      height: 50px;
+      width: auto;
+      max-width: 96px;
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
+      box-shadow: none;
+      filter: drop-shadow(0 1px 6px rgba(120, 130, 145, 0.2));
+    }
+
+    .logo-slot.sahab .partner-logo-placeholder {
+      width: 88px;
+      height: 50px;
+      border: 1px dashed rgba(180, 190, 205, 0.5);
+      border-radius: 8px;
+      background: rgba(245, 247, 250, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-slot.sahab .partner-logo-placeholder span {
+      color: rgba(80, 90, 110, 0.55);
+      font-size: 9px;
+      font-weight: 700;
+    }
+
+    .partnership-divider {
+      width: 2px;
+      height: 58px;
+      background: linear-gradient(180deg, rgba(255, 140, 40, 0.15), rgba(255, 140, 40, 0.85) 35%, rgba(59, 100, 200, 0.85) 65%, rgba(59, 100, 200, 0.15));
+      border-radius: 2px;
+      flex-shrink: 0;
+      box-shadow: 0 0 10px rgba(255, 140, 40, 0.2);
+    }
+
+    .brand-tag { color: rgba(255,255,255,0.42); font-size: 11px; font-weight: 600; padding-top: 6px; }
+    .title-block { text-align: center; }
+    .badge {
+      display: inline-block;
+      background: rgba(255, 140, 40, 0.14);
+      border: 1px solid rgba(255, 140, 40, 0.45);
+      color: #ffb347;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .title {
+      color: #fff;
+      font-size: 38px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+    .subtitle {
+      color: rgba(255,255,255,0.58);
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+    .meta-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .meta-pill {
+      background: rgba(6, 21, 53, 0.78);
+      border: 1px solid rgba(255, 180, 80, 0.25);
+      border-radius: 12px;
+      padding: 10px 8px;
+      text-align: center;
+    }
+    .meta-pill .label { color: rgba(255,255,255,0.45); font-size: 10px; font-weight: 700; }
+    .meta-pill .value { color: #ffbf66; font-size: 12px; font-weight: 800; margin-top: 4px; }
+    .table-wrap {
+      flex: 1;
+      background: rgba(6, 21, 53, 0.82);
+      border: 1px solid rgba(255, 180, 80, 0.28);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.28);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    thead th {
+      background: rgba(255, 140, 40, 0.16);
+      color: #ffbf66;
+      font-size: 12px;
+      font-weight: 900;
+      padding: 16px 10px;
+      border-bottom: 1px solid rgba(255, 140, 40, 0.28);
+      text-align: center;
+    }
+    tbody td {
+      padding: 18px 10px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      vertical-align: middle;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+    .col-num {
+      color: #ff8c2a;
+      font-size: 18px;
+      font-weight: 900;
+      width: 56px;
+    }
+    .col-landmark {
+      color: #ffbf66;
+      font-size: 13px;
+      font-weight: 800;
+      text-align: right;
+    }
+    .col-module {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .col-trainer {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .col-days {
+      color: #ffb347;
+      font-size: 14px;
+      font-weight: 900;
+    }
+    .col-from, .col-to {
+      color: rgba(255,255,255,0.88);
+      font-size: 15px;
+      font-weight: 900;
+      direction: ltr;
+    }
+    .note-box {
+      background: rgba(255, 140, 40, 0.1);
+      border: 1px solid rgba(255, 140, 40, 0.25);
+      border-radius: 14px;
+      padding: 12px 16px;
+      text-align: center;
+      color: rgba(255,255,255,0.55);
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .tagline { color: rgba(255,255,255,0.34); font-size: 12px; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <div class="bg-image"></div>
+    <div class="bg-overlay"></div>
+    <div class="inner">
+      <header class="header">
+        
+        <div class="partnership-bar">
+          <div class="logo-slot nathra">
+            <img src="logo-transparent.png" alt="Nathra" />
+          </div>
+          <div class="partnership-divider"></div>
+          <div class="logo-slot sahab">
+            <img class="partner-logo-img" src="sahab-logo.png" alt="شعار سهب" />
+          </div>
+        </div>
+        <div class="brand-tag">© 2026 Nathra × سهب</div>
+      </header>
+
+      <div class="title-block">
+        <div class="badge">📋 نسخة المدربين — بيانات فقط</div>
+        <h1 class="title">جدول محطات المعسكر</h1>
+        <p class="subtitle">تواريخ ومدربين — نسخة بيانات للمدربين</p>
+      </div>
+
+      <div class="meta-row">
+        <div class="meta-pill"><div class="label">البداية</div><div class="value">1 يوليو 2026 — الأربعاء</div></div>
+        <div class="meta-pill"><div class="label">المدة</div><div class="value">8 أسابيع</div></div>
+        <div class="meta-pill"><div class="label">الساعات</div><div class="value">124 ساعة</div></div>
+        <div class="meta-pill"><div class="label">الوقت</div><div class="value">8 – 10 مساءً</div></div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>المحطة</th>
+              <th>المحتوى</th>
+              <th>المدرب</th>
+              <th>الأيام</th>
+              <th>من</th>
+              <th>إلى</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+          <tr>
+            <td class="col-num">01</td>
+            <td class="col-landmark">جزيرة الجداول</td>
+            <td class="col-module">Microsoft Excel</td>
+            <td class="col-trainer">Fatimah Al-Huwaiti</td>
+            <td class="col-days">15 يومًا</td>
+            <td class="col-from">1/7</td>
+            <td class="col-to">15/7</td>
+          </tr>
+          <tr>
+            <td class="col-num">02</td>
+            <td class="col-landmark">خليج التصور</td>
+            <td class="col-module">Power BI</td>
+            <td class="col-trainer">Walid Abdulazim</td>
+            <td class="col-days">15 يومًا</td>
+            <td class="col-from">16/7</td>
+            <td class="col-to">31/7</td>
+          </tr>
+          <tr>
+            <td class="col-num">03</td>
+            <td class="col-landmark">مغارة البيانات</td>
+            <td class="col-module">SQL</td>
+            <td class="col-trainer">Yasmin Al-Balawi</td>
+            <td class="col-days">15 يومًا</td>
+            <td class="col-from">1/8</td>
+            <td class="col-to">15/8</td>
+          </tr>
+          <tr>
+            <td class="col-num">04</td>
+            <td class="col-landmark">كنز الذكاء الاصطناعي</td>
+            <td class="col-module">Machine Learning &amp; AI</td>
+            <td class="col-trainer">Ahmad Al-Harbi</td>
+            <td class="col-days">15 يومًا</td>
+            <td class="col-from">16/8</td>
+            <td class="col-to">31/8</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note-box">
+        التواريخ بصيغة يوم/شهر · يوليو 2026 → أغسطس 2026 · تدريب مسائي 8 – 10 مساءً
+      </div>
+
+      <footer class="footer">
+        <div class="tagline">من نثر البيانات، نصنع المعنى.</div>
+        <div class="tagline">Nathra × سهب</div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

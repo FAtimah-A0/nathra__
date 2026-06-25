@@ -1,0 +1,57 @@
+{
+  "outputName": "my-new-ad",
+  "pageTitle": "عنوان الإعلان — Nathra",
+  "brand": {
+    "logo": "logo-transparent.png",
+    "tag": "© 2026 Nathra | نثرة للبيانات"
+  },
+  "topBadge": "عرض لفترة محدودة — مقاعد محدودة",
+  "titleLines": [
+    "عنوان الدورة أو الخدمة",
+    "السطر الثاني للعنوان"
+  ],
+  "subtitle": "وصف مختصر — بشكل عملي بحت",
+  "tools": [
+    {
+      "name": "Google Drive",
+      "icon": "https://www.gstatic.com/images/branding/product/2x/drive_2020q4_48dp.png"
+    }
+  ],
+  "stats": [
+    { "icon": "⏱", "label": "المدة", "value": "3 أيام" },
+    { "icon": "💻", "label": "الأسلوب", "value": "أونلاين مباشر" },
+    { "icon": "🎯", "label": "المشاريع", "value": "عملي 100%" }
+  ],
+  "schedule": {
+    "title": "🗓️ مواعيد الدورة",
+    "monthTag": "يونيو 2026",
+    "summary": "3 أيام متتالية — <strong>1 / 2 / 3 يونيو</strong>",
+    "days": [
+      { "session": "اليوم 1", "weekday": "الجمعة", "day": "1", "month": "يونيو" },
+      { "session": "اليوم 2", "weekday": "السبت", "day": "2", "month": "يونيو" },
+      { "session": "اليوم 3", "weekday": "الأحد", "day": "3", "month": "يونيو" }
+    ]
+  },
+  "learn": {
+    "title": "ماذا ستتعلم؟",
+    "subtitle": "بناءً على احتياجات المتدربين",
+    "columns": [
+      ["نقطة 1", "نقطة 2", "نقطة 3", "نقطة 4"],
+      ["نقطة 5", "نقطة 6", "نقطة 7", "نقطة 8"]
+    ]
+  },
+  "cta": {
+    "registerUrl": "https://forms.gle/your-form-link",
+    "registerLabel": "تسجيل",
+    "registerButton": "سجل الآن",
+    "priceLabel": "عرض خاص لفترة محدودة",
+    "limitedTag": "عرض",
+    "oldPrice": "200 ر.س",
+    "newPrice": "150",
+    "currency": "ر.س"
+  },
+  "footer": {
+    "tagline": "من نثر البيانات، نصنع المعنى.",
+    "whatsapp": "للاستفسارات: 0504581123"
+  }
+}

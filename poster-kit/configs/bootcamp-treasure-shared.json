@@ -1,0 +1,73 @@
+{
+  "steps": [
+    {
+      "order": 1,
+      "icon": "📗",
+      "module": "Microsoft Excel",
+      "landmark": "جزيرة الجداول",
+      "duration": "5 أيام",
+      "skills": "Pivot · تقارير · تنظيف البيانات",
+      "trainer": {
+        "name": "Fatimah Al-Huwaiti",
+        "title": "Microsoft Certified Trainer | Data Analyst",
+        "highlights": ["Excel & Power BI", "IBM Data Analyst", "Dashboards & KPIs"]
+      }
+    },
+    {
+      "order": 2,
+      "icon": "📊",
+      "module": "Power BI",
+      "landmark": "خليج التصور",
+      "duration": "25 يومًا",
+      "skills": "DAX · Dashboards · KPIs",
+      "trainer": {
+        "name": "Walid Abdulazim",
+        "title": "Data Analyst & Trainer",
+        "highlights": ["Excel · Power BI · SQL", "Interactive Reports", "Python"]
+      }
+    },
+    {
+      "order": 3,
+      "icon": "🗄️",
+      "module": "SQL",
+      "landmark": "مغارة البيانات",
+      "duration": "15 يومًا",
+      "skills": "استعلامات · MySQL · هيكلة البيانات",
+      "trainer": {
+        "name": "Yasmin Al-Balawi",
+        "title": "SQL & Data Analysis Specialist",
+        "highlights": ["IBM SQL", "IBM Data Analytics", "Project Management"]
+      }
+    },
+    {
+      "order": 4,
+      "icon": "💎",
+      "module": "Machine Learning & AI",
+      "landmark": "كنز الذكاء الاصطناعي",
+      "duration": "15 يومًا",
+      "skills": "نماذج · NLP · Computer Vision · Agentic AI",
+      "trainer": {
+        "name": "Ahmad Al-Harbi",
+        "title": "AI Engineer | Tuwaiq Academy Graduate",
+        "highlights": ["Computer Vision & NLP", "LLMs & Agentic AI", "GASTAT Hackathon 🥈"]
+      }
+    }
+  ],
+  "meta": {
+    "startDate": "1 يوليو 2026 — الأربعاء",
+    "totalHours": "124 ساعة",
+    "totalWeeks": "8 أسابيع",
+    "timeSlot": "8 – 10 مساءً"
+  },
+  "treasure": {
+    "title": "🏆 الكنز: شهادة + ملف أعمال",
+    "subtitle": "مشاريع عملية · تدريب مباشر · منصة سهب"
+  },
+  "brand": {
+    "logo": "logo-transparent.png",
+    "tag": "© 2026 Nathra × سهب"
+  },
+  "footer": {
+    "tagline": "من نثر البيانات، نصنع المعنى."
+  }
+}

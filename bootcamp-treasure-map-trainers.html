@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1080" />
+  <title>خريطة المعسكر — فريق مدربي Nathra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #061228;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .poster {
+      width: 1080px;
+      height: 1350px;
+      position: relative;
+      overflow: hidden;
+      background: #061535;
+    }
+    .bg-image {
+      position: absolute;
+      inset: 0;
+      background-image: url('data-ai-hero.png');
+      background-size: cover;
+      background-position: center 35%;
+      transform: scale(1.06);
+      z-index: 0;
+    }
+    .bg-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(6, 18, 40, 0.82) 0%, rgba(10, 30, 74, 0.88) 38%, rgba(6, 21, 53, 0.93) 100%),
+        radial-gradient(ellipse 90% 60% at 50% 20%, rgba(12, 37, 99, 0.55) 0%, transparent 70%);
+      z-index: 0;
+    }
+    .glow {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(80px);
+      z-index: 0;
+    }
+    .glow-1 {
+      width: 420px;
+      height: 420px;
+      top: -80px;
+      right: -60px;
+      background: rgba(255, 120, 0, 0.22);
+    }
+    .glow-2 {
+      width: 360px;
+      height: 360px;
+      bottom: 120px;
+      left: -80px;
+      background: rgba(255, 90, 0, 0.16);
+    }
+    .map-texture {
+      position: absolute;
+      inset: 0;
+      opacity: 0.06;
+      z-index: 0;
+      background-image:
+        radial-gradient(rgba(255, 200, 100, 0.5) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+    }
+    .map-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .inner {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      padding: 28px 36px 22px;
+      display: flex;
+      flex-direction: column;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      direction: ltr;
+      margin-bottom: 10px;
+    }
+        .partnership-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      direction: ltr;
+      background: rgba(6, 21, 53, 0.55);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 8px 14px;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+      flex-shrink: 0;
+    }
+
+    .logo-slot {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 12px;
+    }
+
+    .logo-slot.nathra::before {
+      content: '';
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(255, 140, 40, 0.55) 0%, rgba(255, 100, 0, 0.2) 40%, transparent 72%);
+      filter: blur(20px);
+      pointer-events: none;
+    }
+
+    .logo-slot.sahab {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 4px 8px;
+      box-shadow:
+        0 2px 10px rgba(130, 140, 155, 0.22),
+        0 0 0 1px rgba(200, 205, 215, 0.35);
+    }
+
+    .logo-slot.sahab::before {
+      content: '';
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(190, 198, 210, 0.38) 0%, rgba(150, 158, 172, 0.16) 45%, transparent 72%);
+      filter: blur(18px);
+      pointer-events: none;
+    }
+
+    .logo-slot img,
+    .logo-slot .partner-logo-img {
+      position: relative;
+      z-index: 1;
+      object-fit: contain;
+    }
+
+    .logo-slot.nathra img {
+      height: 78px;
+      width: auto;
+      filter: drop-shadow(0 0 14px rgba(255, 120, 0, 0.35));
+    }
+
+    .logo-slot.sahab img,
+    .logo-slot.sahab .partner-logo-img {
+      height: 50px;
+      width: auto;
+      max-width: 96px;
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
+      box-shadow: none;
+      filter: drop-shadow(0 1px 6px rgba(120, 130, 145, 0.2));
+    }
+
+    .logo-slot.sahab .partner-logo-placeholder {
+      width: 88px;
+      height: 50px;
+      border: 1px dashed rgba(180, 190, 205, 0.5);
+      border-radius: 8px;
+      background: rgba(245, 247, 250, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-slot.sahab .partner-logo-placeholder span {
+      color: rgba(80, 90, 110, 0.55);
+      font-size: 9px;
+      font-weight: 700;
+    }
+
+    .partnership-divider {
+      width: 2px;
+      height: 58px;
+      background: linear-gradient(180deg, rgba(255, 140, 40, 0.15), rgba(255, 140, 40, 0.85) 35%, rgba(59, 100, 200, 0.85) 65%, rgba(59, 100, 200, 0.15));
+      border-radius: 2px;
+      flex-shrink: 0;
+      box-shadow: 0 0 10px rgba(255, 140, 40, 0.2);
+    }
+
+    .brand-tag {
+      color: rgba(255,255,255,0.42);
+      font-size: 11px;
+      font-weight: 600;
+      padding-top: 6px;
+    }
+    .audience-badge {
+      align-self: center;
+      background: rgba(255, 140, 40, 0.14);
+      border: 1px solid rgba(255, 140, 40, 0.45);
+      color: #ffb347;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 6px 18px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+    }
+    .title-block { text-align: center; margin-bottom: 10px; }
+    .title {
+      color: #fff;
+      font-size: 36px;
+      font-weight: 900;
+      line-height: 1.25;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.35);
+    }
+    .subtitle {
+      color: rgba(255,255,255,0.62);
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+    .meta-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .meta-pill {
+      background: rgba(6, 21, 53, 0.75);
+      border: 1px solid rgba(255, 180, 80, 0.25);
+      border-radius: 12px;
+      padding: 8px 6px;
+      text-align: center;
+    }
+    .meta-pill .label {
+      color: rgba(255,255,255,0.45);
+      font-size: 9px;
+      font-weight: 700;
+    }
+    .meta-pill .value {
+      color: #ffbf66;
+      font-size: 11px;
+      font-weight: 800;
+      margin-top: 2px;
+    }
+    .journey-label {
+      text-align: center;
+      color: #ffbf66;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .map-area {
+      position: relative;
+      flex: 1;
+      min-height: 0;
+    }
+    .start-point {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, rgba(255, 140, 40, 0.25), rgba(255, 100, 0, 0.1));
+      border: 1px solid rgba(255, 180, 80, 0.45);
+      border-radius: 999px;
+      padding: 6px 20px;
+      color: #ffe0b0;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+      z-index: 2;
+    }
+    .map-stop {
+      position: absolute;
+      width: 46%;
+      z-index: 2;
+    }
+    .pos-1 { top: 52px; right: 2%; }
+    .pos-2 { top: 210px; left: 2%; }
+    .pos-3 { top: 390px; right: 2%; }
+    .pos-4 { top: 570px; left: 2%; width: 52%; }
+    .stop-marker {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .stop-num {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffb347, #ff8c2a);
+      color: #061535;
+      font-size: 12px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 16px rgba(255, 140, 40, 0.45);
+    }
+    .stop-icon { font-size: 22px; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4)); }
+    .stop-card {
+      background: rgba(6, 21, 53, 0.88);
+      border: 1px solid rgba(255, 180, 80, 0.28);
+      border-radius: 16px;
+      padding: 12px 14px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+    .is-treasure .stop-card {
+      border-color: rgba(255, 200, 80, 0.55);
+      box-shadow: 0 0 28px rgba(255, 140, 40, 0.2), 0 8px 24px rgba(0,0,0,0.25);
+    }
+    .is-treasure .stop-num {
+      background: linear-gradient(135deg, #ffe082, #ffb300);
+      box-shadow: 0 0 22px rgba(255, 193, 7, 0.55);
+    }
+    .stop-landmark {
+      color: #ffbf66;
+      font-size: 11px;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+    .stop-module {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+    .stop-days {
+      color: #ffbf66;
+      font-size: 13px;
+      font-weight: 900;
+      margin-top: 8px;
+    }
+    .stop-dates {
+      color: rgba(255,255,255,0.72);
+      font-size: 12px;
+      font-weight: 800;
+      margin-top: 3px;
+      direction: ltr;
+      text-align: right;
+    }
+    .stop-duration {
+      color: rgba(255,255,255,0.5);
+      font-size: 10px;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+    .stop-skills {
+      margin-top: 8px;
+      color: rgba(255,255,255,0.72);
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 1.45;
+      border-top: 1px solid rgba(255, 140, 40, 0.15);
+      padding-top: 8px;
+    }
+    .stop-trainer {
+      margin-top: 8px;
+      border-top: 1px solid rgba(255, 140, 40, 0.2);
+      padding-top: 8px;
+    }
+    .trainer-name {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 900;
+    }
+    .trainer-title {
+      color: #ff8c2a;
+      font-size: 10px;
+      font-weight: 700;
+      margin-top: 2px;
+      line-height: 1.4;
+    }
+    .trainer-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 6px;
+    }
+    .trainer-tags span {
+      background: rgba(255, 140, 40, 0.12);
+      border: 1px solid rgba(255, 140, 40, 0.25);
+      color: rgba(255,255,255,0.82);
+      font-size: 8px;
+      font-weight: 700;
+      padding: 3px 7px;
+      border-radius: 999px;
+    }
+    .treasure-footer {
+      margin-top: auto;
+      text-align: center;
+      background: linear-gradient(90deg, rgba(255, 140, 40, 0.18), rgba(255, 100, 0, 0.08));
+      border: 1px solid rgba(255, 180, 80, 0.4);
+      border-radius: 18px;
+      padding: 14px 18px;
+    }
+    .treasure-footer .treasure-title {
+      color: #ffe082;
+      font-size: 18px;
+      font-weight: 900;
+    }
+    .treasure-footer .treasure-sub {
+      color: rgba(255,255,255,0.55);
+      font-size: 11px;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .tagline { color: rgba(255,255,255,0.34); font-size: 11px; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <div class="bg-image"></div>
+    <div class="bg-overlay"></div>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="map-texture"></div>
+    <svg class="map-svg" viewBox="0 0 1080 780" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="pathGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#ffb347" stop-opacity="0.9" />
+          <stop offset="100%" stop-color="#ff8c2a" stop-opacity="0.5" />
+        </linearGradient>
+      </defs>
+      <path
+        d="M 540 30 C 820 60, 900 120, 780 190 C 660 260, 280 240, 300 320 C 320 400, 820 420, 760 500 C 700 580, 320 560, 340 640"
+        fill="none"
+        stroke="url(#pathGrad)"
+        stroke-width="4"
+        stroke-dasharray="12 10"
+        stroke-linecap="round"
+        opacity="0.75"
+      />
+      <circle cx="540" cy="30" r="8" fill="#ffb347" opacity="0.9" />
+      <circle cx="780" cy="190" r="6" fill="#ff8c2a" opacity="0.7" />
+      <circle cx="300" cy="320" r="6" fill="#ff8c2a" opacity="0.7" />
+      <circle cx="760" cy="500" r="6" fill="#ff8c2a" opacity="0.7" />
+      <circle cx="340" cy="640" r="10" fill="#ffd54f" opacity="0.95" />
+    </svg>
+    <div class="inner">
+      <header class="header">
+        
+        <div class="partnership-bar">
+          <div class="logo-slot nathra">
+            <img src="logo-transparent.png" alt="Nathra" />
+          </div>
+          <div class="partnership-divider"></div>
+          <div class="logo-slot sahab">
+            <img class="partner-logo-img" src="sahab-logo.png" alt="شعار سهب" />
+          </div>
+        </div>
+        <div class="brand-tag">© 2026 Nathra × سهب</div>
+      </header>
+
+      <div class="audience-badge">🧭 نسخة المدربين — Nathra</div>
+      <div class="title-block">
+        <h1 class="title">خريطة رحلة المعسكر</h1>
+        <p class="subtitle">فريق نثره يقودك خطوة بخطوة نحو الكنز</p>
+      </div>
+
+      <div class="meta-row">
+        <div class="meta-pill"><div class="label">البداية</div><div class="value">1 يوليو 2026 — الأربعاء</div></div>
+        <div class="meta-pill"><div class="label">المدة</div><div class="value">8 أسابيع</div></div>
+        <div class="meta-pill"><div class="label">الساعات</div><div class="value">124 ساعة</div></div>
+        <div class="meta-pill"><div class="label">الوقت</div><div class="value">8 – 10 مساءً</div></div>
+      </div>
+
+      <div class="journey-label">🗺 مسار الكنز — فريق التدريب</div>
+
+      <div class="map-area">
+        <div class="start-point">🏴 نقطة الانطلاق · 1 يوليو 2026 — الأربعاء</div>
+        
+      <article class="map-stop pos-1 ">
+        <div class="stop-marker">
+          <span class="stop-num">01</span>
+          <span class="stop-icon">📗</span>
+        </div>
+        <div class="stop-card">
+          <div class="stop-landmark">جزيرة الجداول</div>
+          <div class="stop-module">Microsoft Excel</div>
+          
+          <div class="stop-days">15 يومًا</div>
+          <div class="stop-dates">1/7 → 15/7</div>
+          <div class="stop-trainer">
+            <div class="trainer-name">Fatimah Al-Huwaiti</div>
+            <div class="trainer-title">Microsoft Certified Trainer | Data Analyst</div>
+            <div class="trainer-tags"><span>Excel &amp; Power BI</span><span>IBM Data Analyst</span><span>Dashboards &amp; KPIs</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="map-stop pos-2 ">
+        <div class="stop-marker">
+          <span class="stop-num">02</span>
+          <span class="stop-icon">📊</span>
+        </div>
+        <div class="stop-card">
+          <div class="stop-landmark">خليج التصور</div>
+          <div class="stop-module">Power BI</div>
+          
+          <div class="stop-days">15 يومًا</div>
+          <div class="stop-dates">16/7 → 31/7</div>
+          <div class="stop-trainer">
+            <div class="trainer-name">Walid Abdulazim</div>
+            <div class="trainer-title">Data Analyst &amp; Trainer</div>
+            <div class="trainer-tags"><span>Excel · Power BI · SQL</span><span>Interactive Reports</span><span>Python</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="map-stop pos-3 ">
+        <div class="stop-marker">
+          <span class="stop-num">03</span>
+          <span class="stop-icon">🗄️</span>
+        </div>
+        <div class="stop-card">
+          <div class="stop-landmark">مغارة البيانات</div>
+          <div class="stop-module">SQL</div>
+          
+          <div class="stop-days">15 يومًا</div>
+          <div class="stop-dates">1/8 → 15/8</div>
+          <div class="stop-trainer">
+            <div class="trainer-name">Yasmin Al-Balawi</div>
+            <div class="trainer-title">SQL &amp; Data Analysis Specialist</div>
+            <div class="trainer-tags"><span>IBM SQL</span><span>IBM Data Analytics</span><span>Project Management</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="map-stop pos-4 is-treasure">
+        <div class="stop-marker">
+          <span class="stop-num">04</span>
+          <span class="stop-icon">💎</span>
+        </div>
+        <div class="stop-card">
+          <div class="stop-landmark">كنز الذكاء الاصطناعي</div>
+          <div class="stop-module">Machine Learning &amp; AI</div>
+          
+          <div class="stop-days">15 يومًا</div>
+          <div class="stop-dates">16/8 → 31/8</div>
+          <div class="stop-trainer">
+            <div class="trainer-name">Ahmad Al-Harbi</div>
+            <div class="trainer-title">AI Engineer | Tuwaiq Academy Graduate</div>
+            <div class="trainer-tags"><span>Computer Vision &amp; NLP</span><span>LLMs &amp; Agentic AI</span><span>GASTAT Hackathon 🥈</span></div>
+          </div>
+        </div>
+      </article>
+      </div>
+
+      <div class="treasure-footer">
+        <div class="treasure-title">🏆 الكنز: شهادة + ملف أعمال</div>
+        <div class="treasure-sub">مشاريع عملية · تدريب مباشر · منصة سهب</div>
+      </div>
+
+      <footer class="footer">
+        <div class="tagline">من نثر البيانات، نصنع المعنى.</div>
+        <div class="tagline">Nathra × سهب</div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

@@ -9,6 +9,9 @@
     "build:ad:bootcamp:all": "node poster-kit/save-and-build-bootcamp.mjs",
     "save:bootcamp:before-sahab": "node poster-kit/save-before-sahab-logo.mjs",
     "build:treasure-maps": "node poster-kit/build-treasure-maps-all.mjs",
+    "preview:journey": "start bootcamp-journey.html",
+    "journey:dev": "npm run dev --prefix bootcamp-journey",
+    "journey:build": "npm run build --prefix bootcamp-journey",
     "build:ad:bootcamp:landscape": "node poster-kit/build-ad.mjs poster-kit/configs/bootcamp-data-ai-landscape.json",
     "build:ad:example": "node poster-kit/build-ad.mjs poster-kit/configs/example-new-ad.json",
     "poster": "node generate-poster.mjs"
@@ -23,5 +26,9 @@
   "bugs": {
     "url": "https://github.com/FAtimah-A0/14Nathra-9/issues"
   },
-  "homepage": "https://github.com/FAtimah-A0/14Nathra-9#readme"
+  "homepage": "https://fatimah-a0.github.io/14Nathra-9/",
+  "devDependencies": {
+    "ffmpeg-static": "^5.3.0",
+    "puppeteer": "^25.3.0"
+  }
 }

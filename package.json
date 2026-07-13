@@ -19,9 +19,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FAtimah-A0/14Nathra-9.git"
+    "url": "git+https://github.com/FAtimah-A0/nathra__.git"
   },
-  "homepage": "https://fatimah-a0.github.io/14Nathra-9/",
+  "homepage": "https://fatimah-a0.github.io/nathra__/",
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0"

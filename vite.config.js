@@ -1,8 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// Served from custom domain root: https://nathrahdata.com
 export default defineConfig({
-  base: '/',
+  base: process.env.GITHUB_PAGES === 'true' ? '/nathra__/' : '/',
   plugins: [react()],
 });

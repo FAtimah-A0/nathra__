@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
+// Custom domain (nathrahdata.com) is served from site root.
 export default defineConfig({
-  base: process.env.GITHUB_PAGES === 'true' ? '/nathra__/' : '/',
+  base: '/',
   plugins: [react()],
 });

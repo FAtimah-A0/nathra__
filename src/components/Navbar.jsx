@@ -4,7 +4,7 @@ import { NAV_LINKS } from '../data/bootcampData';
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState('hero');
+  const [active, setActive] = useState('journey');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -37,6 +37,7 @@ export default function Navbar() {
   return (
     <nav className={`nav${scrolled ? ' scrolled' : ''}`}>
       <a href="#hero" className="nav-brand" onClick={handleNav}>
+        <span className="nav-brand-glow" aria-hidden="true" />
         <img src={`${import.meta.env.BASE_URL}logo-transparent.png`} alt="Nathra" />
       </a>
       <button type="button" className="nav-toggle" aria-label="القائمة" onClick={() => setOpen((v) => !v)}>

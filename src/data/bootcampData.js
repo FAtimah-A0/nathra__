@@ -7,7 +7,7 @@ export function getWhatsAppUrl(name = '') {
   const trimmed = name.trim();
   const message = trimmed
     ? `${WHATSAPP_MESSAGE}\n\nالاسم: ${trimmed}`
-    : `${WHATSAPP_MESSAGE}\n\nالاسم: `;
+    : WHATSAPP_MESSAGE;
   return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
 }
 
@@ -24,19 +24,14 @@ export const PROGRAM_ICONS = {
 };
 
 export const NAV_LINKS = [
-  { id: 'hero', label: 'الرئيسية' },
-  { id: 'why', label: 'لماذا المعسكر' },
-  { id: 'journey', label: 'مسار التعلم' },
+  { id: 'journey', label: 'المسار' },
   { id: 'schedule', label: 'الجدول' },
-  { id: 'outcomes', label: 'المخرجات' },
-  { id: 'proof', label: 'قصص النجاح' },
   { id: 'pricing', label: 'الأسعار' },
   { id: 'register', label: 'سجّل معنا', cta: true },
 ];
 
 export const URGENCY = [
   { icon: '🔥', text: 'مقاعد محدودة' },
-  { icon: '⏳', text: 'التسجيل ينتهي قريبًا' },
   { icon: '🎥', text: 'تدريب مباشر أونلاين' },
 ];
 
@@ -82,41 +77,45 @@ export const ROADMAP = [
   {
     week: 1,
     label: 'الأسبوع 1',
-    station: 'تحليل الجداول',
+    landmark: 'جزيرة الجداول',
     module: 'Microsoft Excel',
     icon: PROGRAM_ICONS.excel,
     desc: 'Pivot · تقارير · تنظيف البيانات',
-    dates: '1/8 – 7/8',
+    duration: 'أسبوع واحد',
+    dates: '1/8 → 7/8',
     tier: 'tier-bronze',
   },
   {
     week: 2,
     label: 'الأسبوع 2',
-    station: 'تصور البيانات',
+    landmark: 'خليج التصور',
     module: 'Power BI',
     icon: PROGRAM_ICONS.powerbi,
     desc: 'DAX · Dashboards · KPIs',
-    dates: '8/8 – 14/8',
+    duration: 'أسبوع واحد',
+    dates: '8/8 → 14/8',
     tier: 'tier-silver',
   },
   {
     week: 3,
     label: 'الأسبوع 3',
-    station: 'قواعد البيانات',
+    landmark: 'مغارة البيانات',
     module: 'SQL',
     icon: PROGRAM_ICONS.sql,
     desc: 'استعلامات · MySQL · هيكلة البيانات',
-    dates: '15/8 – 21/8',
+    duration: 'أسبوع واحد',
+    dates: '15/8 → 21/8',
     tier: 'tier-gold',
   },
   {
     week: 4,
     label: 'الأسبوع 4',
-    station: 'تحليل البيانات بالذكاء الاصطناعي',
+    landmark: 'كنز الذكاء الاصطناعي',
     module: 'تحليل البيانات بالذكاء الاصطناعي',
     icon: PROGRAM_ICONS.ml,
-    desc: 'Agentic AI · استخراج الرؤى · تطبيقات عملية',
-    dates: '22/8 – 28/8',
+    desc: 'نماذج · NLP · Computer Vision · Agentic AI',
+    duration: 'أسبوع واحد',
+    dates: '22/8 → 28/8',
     tier: 'tier-special',
   },
 ];
@@ -171,40 +170,43 @@ export const OUTCOMES = [
   'تحليل البيانات بالذكاء الاصطناعي',
 ];
 
-export const SOCIAL_PROOF = {
-  stats: [
-    { value: '+120', label: 'متخرج' },
-    { value: '92%', label: 'معدل رضا الطلاب' },
-    { value: '85%', label: 'تطبيق عملي مباشر' },
-    { value: '4.9', label: 'تقييم المعسكر' },
-  ],
-  testimonials: [
-    {
-      quote: '«المشاريع العملية ساعدتني أقدّم ملف أعمال قوي — وتم قبولي في وظيفة تحليل بيانات خلال شهرين.»',
-      name: 'سارة م.',
-      role: 'متخرجة معسكر Nathra',
-      placeholder: true,
-    },
-    {
-      quote: '«أسبوع لكل أداة كان مثالي — Excel، Power BI، SQL، ثم AI. خرجت وأنا أفهم المسار كامل.»',
-      name: 'عبدالله ك.',
-      role: 'محلل بيانات',
-      placeholder: true,
-    },
-    {
-      quote: '«التدريب المباشر والمتابعة مع المدربين فرقت كثير — مو مجرد فيديوهات مسجّلة.»',
-      name: 'نورة أ.',
-      role: 'طالبة معسكر',
-      placeholder: true,
-    },
-  ],
-};
-
 export const TRAINERS = [
-  { week: 'أسبوع 1', module: 'Microsoft Excel', icon: PROGRAM_ICONS.excel, name: 'فاطمة الحويطي', title: 'مدربة معتمدة من Microsoft' },
-  { week: 'أسبوع 2', module: 'Power BI', icon: PROGRAM_ICONS.powerbi, name: 'وليد عبدالعظيم', title: 'محلل بيانات ومدرب' },
-  { week: 'أسبوع 3', module: 'SQL', icon: PROGRAM_ICONS.sql, name: 'ياسمين البلوي', title: 'متخصصة SQL وتحليل البيانات' },
-  { week: 'أسبوع 4', module: 'تحليل البيانات بالذكاء الاصطناعي', icon: PROGRAM_ICONS.ml, name: 'أحمد الحربي', title: 'محلل بيانات · ذكاء اصطناعي · أكاديمية طويق' },
+  {
+    name: 'فاطمة الحويطي',
+    icon: PROGRAM_ICONS.excel,
+    experience: [
+      'مدربة معتمدة من Microsoft (MCT)',
+      'خبرة في تحليل الجداول وبناء التقارير',
+      'تدريب عملي على Pivot وتنظيف البيانات',
+    ],
+  },
+  {
+    name: 'وليد عبدالعظيم',
+    icon: PROGRAM_ICONS.powerbi,
+    experience: [
+      'محلل بيانات ومدرب متخصص في Power BI',
+      'بناء لوحات تفاعلية ومؤشرات KPIs',
+      'خبرة تطبيقية في DAX ولوحات الأعمال',
+    ],
+  },
+  {
+    name: 'ياسمين البلوي',
+    icon: PROGRAM_ICONS.sql,
+    experience: [
+      'متخصصة في SQL وتحليل قواعد البيانات',
+      'تصميم استعلامات وهيكلة البيانات',
+      'خبرة عملية مع MySQL وقواعد البيانات',
+    ],
+  },
+  {
+    name: 'أحمد الحربي',
+    icon: PROGRAM_ICONS.ml,
+    experience: [
+      'محلل بيانات ومتخصص ذكاء اصطناعي',
+      'خريج أكاديمية طويق',
+      'تطبيقات AI وAgentic AI وتحليل الرؤى',
+    ],
+  },
 ];
 
 export const PRICING = {
@@ -218,6 +220,7 @@ export const PRICING = {
 };
 
 export const META = {
+  startDate: '1 أغسطس 2026',
   dateRange: '1 – 31 أغسطس 2026',
   time: '8 – 10 مساءً',
   tagline: 'من نثر البيانات، نصنع المعنى.',

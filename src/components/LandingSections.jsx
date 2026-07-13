@@ -1,6 +1,5 @@
 import {
   OUTCOMES,
-  SOCIAL_PROOF,
   SCHEDULE,
   TRAINERS,
   PRICING,
@@ -79,57 +78,26 @@ export function OutcomesSection() {
   );
 }
 
-export function SocialProofSection() {
-  return (
-    <section className="section" id="proof">
-      <Reveal>
-        <span className="section-label">⭐ قصص النجاح</span>
-        <h2 className="section-title">طلاب Nathra يحققون نتائج حقيقية</h2>
-        <p className="section-sub">مساحة محجوزة لشهادات المتخرجين — يمكنك استبدالها بمراجعات حقيقية لاحقًا.</p>
-      </Reveal>
-
-      <Reveal className="proof-stats">
-        {SOCIAL_PROOF.stats.map((stat, i) => (
-          <div key={stat.label} className="proof-stat" style={{ transitionDelay: `${i * 0.06}s` }}>
-            <div className="proof-stat-value">{stat.value}</div>
-            <div className="proof-stat-label">{stat.label}</div>
-          </div>
-        ))}
-      </Reveal>
-
-      <div className="testimonials-grid">
-        {SOCIAL_PROOF.testimonials.map((t, i) => (
-          <Reveal key={t.name} className="testimonial-card" delay={i * 0.1}>
-            {t.placeholder && <span className="testimonial-badge">مثال — استبدل بمراجعة حقيقية</span>}
-            <p className="testimonial-quote">{t.quote}</p>
-            <div className="testimonial-author">
-              <strong>{t.name}</strong>
-              <span>{t.role}</span>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 export function TrainersSection() {
   return (
     <section className="section section-trainers" id="trainers">
       <Reveal>
         <span className="section-label">👥 المدربون</span>
         <h2 className="section-title">تعلّم من خبراء في كل محطة</h2>
+        <p className="section-sub">خبرة عملية مباشرة — اسم المدرب وخبراته في كل بطاقة</p>
       </Reveal>
       <div className="trainers-row">
         {TRAINERS.map((t, i) => (
           <Reveal key={t.name} className="trainer-pill" delay={i * 0.08}>
             <div className="trainer-pill-icon">
-              <ProgramIcon src={t.icon} alt={t.module} size={32} />
+              <ProgramIcon src={t.icon} alt={t.name} size={32} />
             </div>
-            <span className="trainer-pill-week">{t.week}</span>
-            <strong>{t.module}</strong>
-            <span>{t.name}</span>
-            <small>{t.title}</small>
+            <strong className="trainer-pill-name">{t.name}</strong>
+            <ul className="trainer-experience">
+              {t.experience.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
           </Reveal>
         ))}
       </div>
@@ -185,7 +153,7 @@ export function FinalCTASection() {
       <Reveal className="final-cta-box">
         <span className="limited-badge">🔥 مقاعد محدودة</span>
         <h2>جاهز تبدأ رحلتك؟</h2>
-        <p>سجّل معنا عبر واتساب — فريق Nathra يرد عليك خلال ساعات</p>
+        <p>اكتب اسمك وسجّل معنا عبر واتساب — فريق Nathra يرد عليك خلال ساعات</p>
 
         <div className="final-cta-grid">
           <div className="qr-block">
@@ -193,7 +161,7 @@ export function FinalCTASection() {
             <span>امسح للتسجيل</span>
           </div>
           <div className="final-cta-actions">
-            <RegisterWhatsApp size="btn-xl" />
+            <RegisterWhatsApp size="btn-xl" withName />
             <a href={WHATSAPP_URL} className="btn-whatsapp" target="_blank" rel="noreferrer">
               💬 واتساب: {PRICING.phone}
             </a>

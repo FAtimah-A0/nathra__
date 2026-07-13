@@ -7,7 +7,6 @@ import RoadmapSection from './components/RoadmapSection';
 import {
   OutcomesSection,
   ScheduleSection,
-  SocialProofSection,
   TrainersSection,
   PricingSection,
   FinalCTASection,
@@ -17,7 +16,11 @@ import {
 export default function App() {
   return (
     <>
-      <div className="ambient" aria-hidden="true" />
+      <div
+        className="ambient"
+        aria-hidden="true"
+        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}site-background.png)` }}
+      />
       <Particles />
       <Navbar />
       <main>
@@ -26,7 +29,6 @@ export default function App() {
         <RoadmapSection />
         <ScheduleSection />
         <OutcomesSection />
-        <SocialProofSection />
         <TrainersSection />
         <PricingSection />
         <FinalCTASection />
